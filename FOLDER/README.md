@@ -3,7 +3,7 @@ A link to your hosted working app in the URL section of your Github repo
 
 # Assistant Director
 ## SHORT AND SIMPLE PITCH
-#### an chat bot and data tracker that interacts with child care employees & directors.  
+#### a chat bot and data tracker that interacts with child care employees & directors.  
 
 ### Accomplishes the following:
 
