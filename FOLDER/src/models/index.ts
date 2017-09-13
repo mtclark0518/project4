@@ -12,8 +12,6 @@ const Teacher = sequelize.import('./teacher')
 const Classroom = sequelize.import('./classroom')
 const Student = sequelize.import('./student')
 const Family = sequelize.import('./family')
-// family has one or two parents
-// family has one or many students
 
 
 //----------_------------------_-------------_----_---------
