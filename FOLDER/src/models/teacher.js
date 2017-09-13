@@ -1,13 +1,11 @@
 module.exports = function(sequelize, Sequelize) {
     var teacher = sequelize.define('teacher', {
         firstName: {
-            type: sequelize.STRING
+            type: Sequelize.STRING
         },
         lastName: {
-            type: sequelize.STRING
-        },
-        director: {
-            type: sequelize.BOOLEAN
+            type: Sequelize.STRING
         }
     });
+    return teacher;
 };

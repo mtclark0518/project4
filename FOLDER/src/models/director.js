@@ -1,5 +1,5 @@
 module.exports = function(sequelize, Sequelize) {
-    var model = sequelize.define('director', {
+    var director = sequelize.define('director', {
 
         firstName: {
             type: Sequelize.STRING,
@@ -10,5 +10,5 @@ module.exports = function(sequelize, Sequelize) {
             notNull: true
         }
     });
-    return model;
+    return director;
 };
