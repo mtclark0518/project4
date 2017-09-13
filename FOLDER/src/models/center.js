@@ -1,5 +1,5 @@
 module.exports = function(sequelize, Sequelize) {
-    var center = sequelize.define('center', {
+    var model = sequelize.define('center', {
         id: {
             type: Sequelize.INTEGER,
             autoIncrement: true,
@@ -10,5 +10,5 @@ module.exports = function(sequelize, Sequelize) {
             notNull: true
         }
     });
-    return center;
+    return model;
 };

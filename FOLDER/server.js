@@ -1,7 +1,5 @@
 const express = require('express');
 const app = express();
-const http = require('http');
-const server = http.createServer(app);
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
@@ -23,6 +21,6 @@ router.get('/', function(req, res) {
     res.sendFile(__dirname + '/index.html');
 });
 
-server.listen(PORT, function() {
+app.listen(PORT, function() {
     console.log('gettin schwifty on ' + PORT);
 });

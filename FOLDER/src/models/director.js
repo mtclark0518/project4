@@ -1,18 +1,14 @@
 module.exports = function(sequelize, Sequelize) {
-    var director = sequelize.define('director', {
-        id: {
-            type: sequelize.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
-        },
+    var model = sequelize.define('director', {
+
         firstName: {
-            type: sequelize.STRING,
+            type: Sequelize.STRING,
             notNull: true
         },
         lastName: {
-            type: sequelize.STRING,
+            type: Sequelize.STRING,
             notNull: true
         }
     });
-    return director;
+    return model;
 };

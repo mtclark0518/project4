@@ -1,13 +1,12 @@
-import * as Sequelize from 'sequelize'
 // define the database
-
-const sequelize = new Sequelize(process.env.DATABASE_URL || 'postgres://TheTDrive@localhost:5432/project4' )
+var Sequelize = require('sequelize');
+var sequelize = new Sequelize(process.env.DATABASE_URL || 'postgres://TheTDrive@localhost:5432/project4');
 
 //----------_------------------_-------------_----_---------
 // import models as sequelize models
 //----------_------------------_-------------_----_---------
-const Center = sequelize.import('./center')
-const Director = sequelize.import('./director')
+const Center = sequelize.import('./center');
+const Director = sequelize.import('./director');
 // const Teacher = sequelize.import('./teacher')
 // const Classroom = sequelize.import('./classroom')
 // const Student = sequelize.import('./student')
@@ -19,10 +18,10 @@ const Director = sequelize.import('./director')
 //----------_------------------_-------------_----_---------
 
 
-Center.hasOne(Director)
+Center.hasOne(Director);
 //Center.hasMany(Classroom, {})
 
-Director.belongsTo(Center)
+Director.belongsTo(Center);
 //Director.hasMany(Teacher)
 
 //Teacher.belongsTo(Director)
@@ -39,7 +38,8 @@ Director.belongsTo(Center)
 
 
 // wrap up our models into a variable
-const db = <any> {}
+var db = {};
+
 db.models = {
     Center,
     Director,
@@ -47,9 +47,10 @@ db.models = {
     // Teacher,
     // Student,
     // Family,
-}
+};
 
-db.Sequelize = Sequelize
-db.sequelize = sequelize
+db.Sequelize = Sequelize;
+db.sequelize = sequelize;
 // send our models
-export { db }
+
+module.exports = db;
