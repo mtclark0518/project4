@@ -1,17 +1,17 @@
 import * as Sequelize from 'sequelize'
 // define the database
 
-const sequelize = new Sequelize( process.env.DATABASE_URL || 'postgres://TheTDrive@localhost:5432/project4' )
+const sequelize = new Sequelize(process.env.DATABASE_URL || 'postgres://TheTDrive@localhost:5432/project4' )
 
 //----------_------------------_-------------_----_---------
 // import models as sequelize models
 //----------_------------------_-------------_----_---------
 const Center = sequelize.import('./center')
 const Director = sequelize.import('./director')
-const Teacher = sequelize.import('./teacher')
-const Classroom = sequelize.import('./classroom')
-const Student = sequelize.import('./student')
-const Family = sequelize.import('./family')
+// const Teacher = sequelize.import('./teacher')
+// const Classroom = sequelize.import('./classroom')
+// const Student = sequelize.import('./student')
+// const Family = sequelize.import('./family')
 
 
 //----------_------------------_-------------_----_---------
@@ -19,10 +19,10 @@ const Family = sequelize.import('./family')
 //----------_------------------_-------------_----_---------
 
 
-//Center.hasOne(Director, {})
+Center.hasOne(Director)
 //Center.hasMany(Classroom, {})
 
-//Director.belongsTo(Center)
+Director.belongsTo(Center)
 //Director.hasMany(Teacher)
 
 //Teacher.belongsTo(Director)
@@ -44,7 +44,7 @@ db.models = {
     Center,
     Director,
     // Classroom,
-    Teacher,
+    // Teacher,
     // Student,
     // Family,
 }
