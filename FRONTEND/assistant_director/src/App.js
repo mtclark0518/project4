@@ -1,18 +1,32 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  
+  goTo(route) {this.props.history.replace(`/${route}`)}
+
+  login() { this.props.auth.login(); }
+ 
+  logout() { this.props.auth.logout(); }
+ 
   render() {
+    const { isAuthenticated } = this.props.auth;
+
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <button onClick={this.goTo.bind(this, 'home')}>home</button>
+          {
+            !isAuthenticated() && (
+              <button onClick={this.login.bind(this)}>log in</button>
+            )}
+          {
+            isAuthenticated() && (
+              <button onClick={this.logout.bind(this)}>log out</button>
+            )
+          }
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        
       </div>
     );
   }
