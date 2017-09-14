@@ -25,13 +25,13 @@ Teacher.belongsTo(Center);
 Student.belongsTo(Center);
 
 Teacher.hasMany(Student);
-Teacher.hasMany(Classroom);
-
 Classroom.hasMany(Student);
-Classroom.belongsToMany(Teacher, { through: 'Classroom_Teacher_Assignments' });
 
-Student.belongsToMany(Classroom, { through: 'Student_Classroom_Assignments' });
-Student.belongsToMany(Teacher, { through: 'Student_Teacher_Assignments' });
+Teacher.belongsToMany(Classroom, { through: 'classroom_teacher' });
+Classroom.belongsToMany(Teacher, { through: 'classroom_teacher' });
+
+Student.belongsToMany(Classroom, { through: 'student_classroom' });
+Student.belongsToMany(Teacher, { through: 'student_teacher' });
 
 
 
