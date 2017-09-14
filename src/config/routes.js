@@ -1,6 +1,7 @@
-const router = require('express').Router;
+const express = require('express');
+const router = express.Router;
 const appController = require('../controllers/appController');
 
-router.get(appController.launch);
+router.get(appCNTL.launch);
 
 module.exports = router;
