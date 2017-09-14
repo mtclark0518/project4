@@ -6,35 +6,35 @@ var sequelize = new Sequelize(process.env.DATABASE_URL || 'postgres://TheTDrive@
 // import models as sequelize models
 //----------_------------------_-------------_----_---------
 const Center = sequelize.import('./center');
-const Director = sequelize.import('./director');
 const Teacher = sequelize.import('./teacher');
 const Classroom = sequelize.import('./classroom');
 const Student = sequelize.import('./student');
-const Family = sequelize.import('./family');
+// const Family = sequelize.import('./family');
 
 
 //----------_------------------_-------------_----_---------
 // define model relatioships
 //----------_------------------_-------------_----_---------
 
-
-Center.hasOne(Director);
-Center.hasMany(Classroom, { as: 'Classrooms' });
-
-Director.belongsTo(Center);
-Director.hasMany(Teacher, { as: 'Teachers' });
-
-Teacher.belongsTo(Director);
-Teacher.belongsToMany(Classroom, { through: 'Room Assignment', as: 'CurrentTeacher' });
+Center.hasMany(Classroom);
+Center.hasMany(Teacher);
+Center.hasMany(Student);
 
 Classroom.belongsTo(Center);
-Classroom.hasMany(Teacher, { as: 'Teachers' });
-Classroom.hasMany(Student, { as: 'Students' });
+Teacher.belongsTo(Center);
+Student.belongsTo(Center);
 
-Student.belongsToMany(Classroom, { through: 'Room Assignment', as: 'CurrentStudents' });
-Student.belongsTo(Family);
+Teacher.hasMany(Student);
+Teacher.hasMany(Classroom);
 
-Family.hasMany(Student);
+Classroom.hasMany(Student);
+Classroom.belongsToMany(Teacher, { through: 'Classroom_Teacher_Assignments' });
+
+Student.belongsToMany(Classroom, { through: 'Student_Classroom_Assignments' });
+Student.belongsToMany(Teacher, { through: 'Student_Teacher_Assignments' });
+
+
+
 
 
 // wrap up our models into a variable
@@ -42,11 +42,10 @@ var db = {};
 
 db.models = {
     Center,
-    Director,
-    Classroom,
     Teacher,
+    Classroom,
     Student,
-    Family,
+    // Family,
 };
 
 db.Sequelize = Sequelize;

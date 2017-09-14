@@ -5,6 +5,15 @@ module.exports = function(sequelize, Sequelize) {
         },
         lastName: {
             type: Sequelize.STRING
+        },
+        birthday: {
+            type: Sequelize.DATEONLY,
+            notNull: true
+        },
+        gender: Sequelize.STRING,
+        isPresent: {
+            type: Sequelize.BOOLEAN,
+            notNull: true
         }
     });
     return student;
