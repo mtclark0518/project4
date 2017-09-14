@@ -33,10 +33,6 @@ Classroom.belongsToMany(Teacher, { through: 'classroom_teacher' });
 Student.belongsToMany(Classroom, { through: 'student_classroom' });
 Student.belongsToMany(Teacher, { through: 'student_teacher' });
 
-
-
-
-
 // wrap up our models into a variable
 var db = {};
 
