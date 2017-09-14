@@ -5,41 +5,26 @@ var sequelize = new Sequelize(process.env.DATABASE_URL || 'postgres://TheTDrive@
 //----------_------------------_-------------_----_---------
 // import models as sequelize models
 //----------_------------------_-------------_----_---------
-const Center = sequelize.import('./center');
 const Teacher = sequelize.import('./teacher');
-const Classroom = sequelize.import('./classroom');
+const Location = sequelize.import('./location');
 const Student = sequelize.import('./student');
-// const Family = sequelize.import('./family');
-
 
 //----------_------------------_-------------_----_---------
 // define model relatioships
 //----------_------------------_-------------_----_---------
+Location.hasMany(Student);
+Location.hasMany(Teacher);
+Student.belongsToMany(Location, { through: 'student_location' });
+Teacher.belongsToMany(Location, { through: 'teacher_location' });
 
-Center.hasMany(Classroom);
-Center.hasMany(Teacher);
-Center.hasMany(Student);
-
-Classroom.belongsTo(Center);
-Teacher.belongsTo(Center);
-Student.belongsTo(Center);
-
-Teacher.hasMany(Student);
-Classroom.hasMany(Student);
-
-Teacher.belongsToMany(Classroom, { through: 'classroom_teacher' });
-Classroom.belongsToMany(Teacher, { through: 'classroom_teacher' });
-
-Student.belongsToMany(Classroom, { through: 'student_classroom' });
-Student.belongsToMany(Teacher, { through: 'student_teacher' });
 
 // wrap up our models into a variable
 var db = {};
 
 db.models = {
-    Center,
+    // Center,
     Teacher,
-    Classroom,
+    Location,
     Student,
     // Family,
 };

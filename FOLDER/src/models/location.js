@@ -1,15 +1,13 @@
 module.exports = function(sequelize, Sequelize) {
-    var classroom = sequelize.define('classroom', {
+    var location = sequelize.define('location', {
         name: {
             type: Sequelize.STRING
         },
         studentCapacity: {
             type: Sequelize.INTEGER,
             notNull: true
-        },
-        nickname: Sequelize.STRING
-
+        }
 
     });
-    return classroom;
+    return location;
 };
