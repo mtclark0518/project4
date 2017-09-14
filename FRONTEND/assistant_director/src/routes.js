@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Router } from 'react-router-dom';
 import App from './App';
-import Home from './_home/Home';
+import HomePage from './_home/HomePage';
 import Callback from './_callback/Callback';
 import Auth from './_auth/Auth';
 import history from './history';
@@ -19,7 +19,7 @@ export const makeMainRoutes = () => {
       <Router history={history} component={App}>
         <div>
           <Route path="/" render={(props) => <App auth={auth} {...props} />} />
-          <Route path="/home" render={(props) => <Home auth={auth} {...props} />} />
+          <Route path="/home" render={(props) => <HomePage auth={auth} {...props} />} />
           <Route path="/callback" render={(props) => {
             handleAuthentication(props);
             return <Callback {...props} /> 
