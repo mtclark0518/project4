@@ -16,17 +16,9 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <button onClick={this.goTo.bind(this, 'home')}>home</button>
-          {
-            !isAuthenticated() && (
-              <button onClick={this.login.bind(this)}>log in</button>
-            )}
-          {
-            isAuthenticated() && (
-              <button onClick={this.logout.bind(this)}>log out</button>
-            )
-          }
+          {!isAuthenticated() && (<button onClick={this.login.bind(this)}>log in</button>)}
+          {isAuthenticated() && (<button onClick={this.logout.bind(this)}>log out</button>)}
         </div>
-        
       </div>
     );
   }

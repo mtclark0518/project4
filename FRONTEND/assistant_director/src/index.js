@@ -9,5 +9,5 @@ const routes = makeMainRoutes();
 
 ReactDOM.render( 
     routes,
-    document.getElementById('root'));
-registerServiceWorker();
+    document.getElementById('root')
+);
