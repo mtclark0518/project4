@@ -4,10 +4,10 @@ import { AUTH_CONFIG } from './auth0-variables';
 
 export default class Auth {
     auth0 = new auth0.WebAuth({
-        domain: AUTH_CONFIG.domain,
-        clientID: AUTH_CONFIG.clientId,
-        redirectUri: AUTH_CONFIG.callbackUrl,
-        audience: `https://${AUTH_CONFIG.domain}/userinfo`,
+        domain: 'tclark.auth0.com',
+        clientID: 'u7iTOVDjbr4hW4t3DlnPmAR3SI09Fwc4',
+        redirectUri: 'http://localhost:3000/callback',
+        audience: 'https://tclark.auth0.com/userinfo',
         responseType: 'token id_token',
         scope: 'openid'
     });
