@@ -1,6 +1,6 @@
-const appController = {
+const appCNTL = {
     launch: function(req, res) {
         res.sendFile(__dirname + '/index.html');
     }
 };
-module.exports = appController;
+module.exports = appCNTL;

@@ -3,13 +3,14 @@ import auth0 from 'auth0-js';
 import { AUTH_CONFIG } from './auth0-variables';
 
 export default class Auth {
+    
     auth0 = new auth0.WebAuth({
         domain: 'tclark.auth0.com',
         clientID: 'u7iTOVDjbr4hW4t3DlnPmAR3SI09Fwc4',
         redirectUri: 'http://localhost:3000/callback',
         audience: 'https://tclark.auth0.com/userinfo',
         responseType: 'token id_token',
-        scope: 'openid'
+        scope: 'openid profile'
     });
 
     constructor() {
@@ -17,8 +18,27 @@ export default class Auth {
         this.logout = this.logout.bind(this);
         this.handleAuthentication = this.handleAuthentication.bind(this);
         this.isAuthenticated = this.isAuthenticated.bind(this);
+        this.getProfile = this.getProfile.bind(this);
+    }
+    userProfile;
+    getAccessToken() {
+        const accessToken = this.localStorage.getItem('access_token')
+        if (!accessToken) {
+            throw new Error ('no access token found')
+        }
+        return accessToken;
     }
 
+    getProfile(callback) {
+        let accessToken = this.getAccessToken();
+        this.auth0.client.userInfo(accessToken, (error, profile) => {
+            if (profile) {
+                this.userProfile = profile;
+            }
+            callback(error, profile)
+        })
+    }
+    
     login() {
         this.auth0.authorize();
     }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Router } from 'react-router-dom';
 import App from './App';
-import HomePage from './_home/HomePage';
+import HomePage from './_containers/HomePage';
 import Callback from './_callback/Callback';
 import Auth from './_auth/Auth';
 import history from './history';
