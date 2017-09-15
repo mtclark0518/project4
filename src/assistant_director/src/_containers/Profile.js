@@ -18,8 +18,10 @@ class Profile extends Component {
         const { profile } = this.state;
         return (
             <div>
-                <h1>{profile.name}</h1>
+                <h1>{profile.given_name}</h1>
+                <h1>{profile.family_name}</h1>
                 <h1>You rock!</h1>
+                
                 <pre>{JSON.stringify(profile, null, 2)}</pre>
             </div>
 
