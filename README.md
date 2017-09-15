@@ -21,27 +21,28 @@ A link to your hosted working app in the URL section of your Github repo
 
 ## Technologies Used: 
 
-### Database
-#### postgres sql
-#### sequelize
-
 ### Back-End
-#### Node.js
-#### express
-#### auth0
+  Node.js
+  express
+  auth0
 
-### AI
-#### api.ai
+#### Database
+ postgres sql
+ sequelize
+
+#### AI
+motion.ai
 
 ### Front-End
-#### React-Native
-#### Sass
+  React-Native
+  chart-js
+  Sass
 
 ## WIREFRAMES 
-[**login](https://github.com/mtclark0518/project4/blob/tyler/FOLDER/src/assets/login_wf.png)
-[**user dash](https://github.com/mtclark0518/project4/blob/tyler/FOLDER/src/assets/user_dash_wf.png)
-[**interacting](https://github.com/mtclark0518/project4/blob/tyler/FOLDER/src/assets/interaction_wf.png)
-[**notifications](https://github.com/mtclark0518/project4/blob/tyler/FOLDER/src/assets/notifications_wf.png)
+**[login](https://github.com/mtclark0518/project4/blob/tyler/FOLDER/src/assets/login_wf.png)
+**[user dash](https://github.com/mtclark0518/project4/blob/tyler/FOLDER/src/assets/user_dash_wf.png)
+**[interacting](https://github.com/mtclark0518/project4/blob/tyler/FOLDER/src/assets/interaction_wf.png)
+**[notifications](https://github.com/mtclark0518/project4/blob/tyler/FOLDER/src/assets/notifications_wf.png)
 
 ## [USER STORIES](https://trello.com/b/4y4ULanu/project-4)
 
