@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 
 class Location extends Component {
 
+state = {locations : []}
     componentDidMount() {
         fetch('/api/locations')
         .then(res => res.json())
@@ -11,9 +12,12 @@ class Location extends Component {
     render() {
         return (
             <div className="Location">
-                <p data-locations-index={this.props.location._id}>
-                    <span> {this.props.location.name} </span>
-                </p>
+                    {this.state.locations.map(location => 
+                    <div key={location.id}>
+                      <h1>  {location.name} </h1>
+                      <p> Capacity: {location.studentCapacity} </p>
+                    </div>
+                    )}
             </div>
         )
     }
