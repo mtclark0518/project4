@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Profile from '../_components/profile';
 class HomePage extends Component {
     login() {
         this.props.auth.login();
@@ -9,9 +9,9 @@ class HomePage extends Component {
         return ( 
             <div className = "container" > 
             {
-                isAuthenticated() && ( 
-                    <h4> You are logged in! </h4>
-                )
+                isAuthenticated() 
+                    // <Profile />
+                
             } 
             {
                 !isAuthenticated() && ( 

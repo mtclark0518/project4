@@ -3,7 +3,8 @@ import auth0 from 'auth0-js';
 import { AUTH_CONFIG } from './auth0-variables';
 
 export default class Auth {
-    
+    userProfile;
+
     auth0 = new auth0.WebAuth({
         domain: 'tclark.auth0.com',
         clientID: 'u7iTOVDjbr4hW4t3DlnPmAR3SI09Fwc4',
@@ -20,7 +21,6 @@ export default class Auth {
         this.isAuthenticated = this.isAuthenticated.bind(this);
         this.getProfile = this.getProfile.bind(this);
     }
-    userProfile;
     getAccessToken() {
         const accessToken = this.localStorage.getItem('access_token')
         if (!accessToken) {
@@ -29,13 +29,16 @@ export default class Auth {
         return accessToken;
     }
 
-    getProfile(callback) {
+    getProfile(cb) {
         let accessToken = this.getAccessToken();
-        this.auth0.client.userInfo(accessToken, (error, profile) => {
+        console.log(accessToken)
+        console.log(this.auth0.client)
+        this.auth0.client.userInfo(accessToken, function(error, profile) {
+            console.log()
             if (profile) {
                 this.userProfile = profile;
             }
-            callback(error, profile)
+            cb(error, profile)
         })
     }
     
