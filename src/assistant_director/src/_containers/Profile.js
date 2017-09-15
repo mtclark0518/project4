@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../App.css'
+import Location from '../_components/location'
 
 class Profile extends Component {
 
@@ -20,10 +21,12 @@ class Profile extends Component {
             <div>
                 <h1>{profile.given_name}</h1>
                 <h1>{profile.family_name}</h1>
+                <div>
+                    <Location />
+                </div>
                 <h4>this is what comes back from auth0</h4>                
                 <pre>{JSON.stringify(profile, null, 2)}</pre>
             </div>
-
         )
     }
 }
