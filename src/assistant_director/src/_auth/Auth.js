@@ -8,7 +8,7 @@ export default class Auth {
         domain: 'tclark.auth0.com',
         clientID: 'u7iTOVDjbr4hW4t3DlnPmAR3SI09Fwc4',
         redirectUri: 'http://localhost:3000/callback',
-        audience: `https://tclark.auth0.com/userinfo`,
+        audience: 'https://tclark.auth0.com/userinfo',
         responseType: 'token id_token',
         scope: 'openid profile'
     });
@@ -52,7 +52,7 @@ export default class Auth {
         history.replace('/home');
     }
     getAccessToken() {
-        const accessToken = this.localStorage.getItem('access_token')
+        const accessToken = localStorage.getItem('access_token')
         if (!accessToken) {
             throw new Error ('no access token found')
         }
@@ -61,10 +61,7 @@ export default class Auth {
 
     getProfile(cb) {
         let accessToken = this.getAccessToken();
-        console.log(accessToken)
-        console.log(this.auth0.client)
-        this.auth0.client.userInfo(accessToken, function(err, profile) {
-            console.log()
+        this.auth0.client.userInfo(accessToken, (err, profile) => {
             if (profile) {
                 this.userProfile = profile;
             }
