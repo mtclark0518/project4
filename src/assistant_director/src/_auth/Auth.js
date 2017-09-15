@@ -1,18 +1,19 @@
-import history from '../history';
 import auth0 from 'auth0-js';
-import { AUTH_CONFIG } from './auth0-variables';
+// import { AUTH_CONFIG } from './auth0-variables';
+import history from '../history';
 
 export default class Auth {
-    userProfile
 
     auth0 = new auth0.WebAuth({
         domain: 'tclark.auth0.com',
         clientID: 'u7iTOVDjbr4hW4t3DlnPmAR3SI09Fwc4',
         redirectUri: 'http://localhost:3000/callback',
-        audience: 'https://tclark.auth0.com/userinfo',
+        audience: `https://tclark.auth0.com/userinfo`,
         responseType: 'token id_token',
         scope: 'openid profile'
     });
+    
+    userProfile;
 
     constructor() {
         this.login = this.login.bind(this);
@@ -21,26 +22,7 @@ export default class Auth {
         this.isAuthenticated = this.isAuthenticated.bind(this);
         this.getProfile = this.getProfile.bind(this);
     }
-    getAccessToken() {
-        const accessToken = this.localStorage.getItem('access_token')
-        if (!accessToken) {
-            throw new Error ('no access token found')
-        }
-        return accessToken;
-    }
 
-    getProfile(cb) {
-        let accessToken = this.getAccessToken();
-        console.log(accessToken)
-        console.log(this.auth0.client)
-        this.auth0.client.userInfo(accessToken, function(error, profile) {
-            console.log()
-            if (profile) {
-                this.userProfile = profile;
-            }
-            cb(error, profile)
-        })
-    }
     
     login() {
         this.auth0.authorize();
@@ -67,6 +49,26 @@ export default class Auth {
         localStorage.setItem('expires_at', expiresAt);
         // navigate to the home route
         history.replace('/home');
+    }
+    getAccessToken() {
+        const accessToken = this.localStorage.getItem('access_token')
+        if (!accessToken) {
+            throw new Error ('no access token found')
+        }
+        return accessToken;
+    }
+
+    getProfile(cb) {
+        let accessToken = this.getAccessToken();
+        console.log(accessToken)
+        console.log(this.auth0.client)
+        this.auth0.client.userInfo(accessToken, function(error, profile) {
+            console.log()
+            if (profile) {
+                this.userProfile = profile;
+            }
+            cb(error, profile)
+        })
     }
 
     logout() {

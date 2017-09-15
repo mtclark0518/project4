@@ -10,6 +10,7 @@ var createLocation = function() {
     return DB.Location.create(testLocation);
 }
 
-createLocation().then(function() {
-    process.exit();
-});
+createLocation()
+    .then(function() {
+        process.exit();
+    });
