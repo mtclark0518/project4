@@ -25,9 +25,9 @@ export const makeMainRoutes = () => {
           <Route path="/home" render={(props) => 
             <HomePage auth={auth} {...props} />} 
           />
-          <Route path="/profile" render={(props) => 
-            ( auth.isAuthenticated() ? (
-                <Redirect to = "/home/" />
+          <Route path="/profile" render={(props) => (
+            !auth.isAuthenticated() ? (
+                <Redirect to = "/home" />
               ) : (
                 <Profile auth={auth} {...props} />
               )

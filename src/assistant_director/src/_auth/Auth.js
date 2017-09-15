@@ -20,6 +20,7 @@ export default class Auth {
         this.logout = this.logout.bind(this);
         this.handleAuthentication = this.handleAuthentication.bind(this);
         this.isAuthenticated = this.isAuthenticated.bind(this);
+        this.getAccessToken = this.getAccessToken.bind(this);
         this.getProfile = this.getProfile.bind(this);
     }
 
@@ -62,12 +63,12 @@ export default class Auth {
         let accessToken = this.getAccessToken();
         console.log(accessToken)
         console.log(this.auth0.client)
-        this.auth0.client.userInfo(accessToken, function(error, profile) {
+        this.auth0.client.userInfo(accessToken, function(err, profile) {
             console.log()
             if (profile) {
                 this.userProfile = profile;
             }
-            cb(error, profile)
+            cb(err, profile)
         })
     }
 
@@ -76,6 +77,7 @@ export default class Auth {
         localStorage.removeItem('access_token');
         localStorage.removeItem('id_token');
         localStorage.removeItem('expires_at');
+        this.userProfile = null;
         // navigate to the home route
         history.replace('/home');
     }
