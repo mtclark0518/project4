@@ -5,12 +5,15 @@ const testLocation = {
     name: 'classroom_1',
     studentCapacity: 24
 };
+const anotherTest = {
+    name: 'classroom_2',
+    studentCapacity: 17
+};
 
-var createLocation = function() {
-    return DB.Location.create(testLocation);
+var createLocation = function(location) {
+    return DB.Location.create(location);
 }
 
-createLocation()
-    .then(function() {
-        process.exit();
-    });
+createLocation(testLocation).then(createLocation(anotherTest)).then(function() {
+    process.exit();
+});

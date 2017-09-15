@@ -6,6 +6,10 @@ module.exports = function(sequelize, Sequelize) {
         studentCapacity: {
             type: Sequelize.INTEGER,
             notNull: true
+        },
+        currentStudents: {
+            type: Sequelize.INTEGER,
+            notNull: false
         }
 
     });
