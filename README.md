@@ -48,7 +48,13 @@ motion.ai
 
 ## GENERAL APPROACH
 
-A couple paragraphs about the general approach you took
+decided on react native as front end framework after finishing react todo tutorial. Spent some time getting hello world RN app to work.
+
+still wasn't sure what the project was going to be as I added node and express to the stack. 
+
+All of my ideas centered around relational data so I knew I wanted to use PSQL for my db. 
+
+After a lunch and learn on Monday from anthony romero at spruceLabs the prospect of utilizing AI to create a chat-bot as a feature seemed way more feasible. Without much realization I recognized that the application I had begun to map was essentially an AIAD - artificially intelligent assistant director.
 
 ## Link to LIVE Hosting
 
