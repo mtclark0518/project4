@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../App.css'
 import Location from '../_components/location'
+import Student from '../_components/student'
 
 class Profile extends Component {
 
@@ -22,6 +23,7 @@ class Profile extends Component {
                 <h1>{profile.given_name}</h1>
                 <h1>{profile.family_name}</h1>
                 <div>
+                    <Student />
                     <Location/>
                 </div>
                 <h4>this is what comes back from auth0</h4>                
