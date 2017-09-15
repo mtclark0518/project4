@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class HomePage extends Component {
     login() {
@@ -9,9 +10,10 @@ class HomePage extends Component {
         return ( 
             <div className = "container" > 
             {
-                isAuthenticated() && ( 
-                    <h4> You are logged in! </h4>
+                isAuthenticated() && (
+                    <h3><Link to="profile">link</Link></h3>
                 )
+
             } 
             {
                 !isAuthenticated() && ( 

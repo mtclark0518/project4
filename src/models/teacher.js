@@ -1,18 +1,21 @@
 module.exports = function(sequelize, Sequelize) {
     var teacher = sequelize.define('teacher', {
-
-        firstName: {
+        auth0: {
             type: Sequelize.STRING,
             notNull: true
+        },
+        firstName: {
+            type: Sequelize.STRING,
+            notNull: false
         },
         lastName: {
             type: Sequelize.STRING,
-            notNull: true
+            notNull: false
         },
-        isAdmin: {
-            type: Sequelize.BOOLEAN,
-            notNull: true
-        }
+        // isAdmin: {
+        //     type: Sequelize.BOOLEAN,
+        //     notNull: true
+        // }
     });
     return teacher;
 };

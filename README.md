@@ -21,33 +21,40 @@ A link to your hosted working app in the URL section of your Github repo
 
 ## Technologies Used: 
 
-### Database
-#### postgres sql
-#### sequelize
-
 ### Back-End
-#### Node.js
-#### express
-#### auth0
+  Node.js
+  express
+  auth0
 
-### AI
-#### api.ai
+#### Database
+ postgres sql
+ sequelize
+
+#### AI
+motion.ai
 
 ### Front-End
-#### React-Native
-#### Sass
+  React-Native
+  chart-js
+  Sass
 
 ## WIREFRAMES 
-[**login](https://github.com/mtclark0518/project4/blob/tyler/FOLDER/src/assets/login_wf.png)
-[**user dash](https://github.com/mtclark0518/project4/blob/tyler/FOLDER/src/assets/user_dash_wf.png)
-[**interacting](https://github.com/mtclark0518/project4/blob/tyler/FOLDER/src/assets/interaction_wf.png)
-[**notifications](https://github.com/mtclark0518/project4/blob/tyler/FOLDER/src/assets/notifications_wf.png)
+**[login](https://github.com/mtclark0518/project4/blob/tyler/FOLDER/src/assets/login_wf.png)
+**[user dash](https://github.com/mtclark0518/project4/blob/tyler/FOLDER/src/assets/user_dash_wf.png)
+**[interacting](https://github.com/mtclark0518/project4/blob/tyler/FOLDER/src/assets/interaction_wf.png)
+**[notifications](https://github.com/mtclark0518/project4/blob/tyler/FOLDER/src/assets/notifications_wf.png)
 
 ## [USER STORIES](https://trello.com/b/4y4ULanu/project-4)
 
 ## GENERAL APPROACH
 
-A couple paragraphs about the general approach you took
+decided on react native as front end framework after finishing react todo tutorial. Spent some time getting hello world RN app to work.
+
+still wasn't sure what the project was going to be as I added node and express to the stack. 
+
+All of my ideas centered around relational data so I knew I wanted to use PSQL for my db. 
+
+After a lunch and learn on Monday from Anthony Romero at spruceLabs the prospect of utilizing AI to create a chat-bot as a feature seemed way more feasible. Without much realization I recognized that the application I had begun to map was essentially an AIAD - artificially intelligent assistant director.
 
 ## Link to LIVE Hosting
 

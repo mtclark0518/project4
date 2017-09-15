@@ -1,9 +1,9 @@
-import history from '../history';
 import auth0 from 'auth0-js';
-import { AUTH_CONFIG } from './auth0-variables';
+// import { AUTH_CONFIG } from './auth0-variables';
+import history from '../history';
 
 export default class Auth {
-    
+
     auth0 = new auth0.WebAuth({
         domain: 'tclark.auth0.com',
         clientID: 'u7iTOVDjbr4hW4t3DlnPmAR3SI09Fwc4',
@@ -12,32 +12,18 @@ export default class Auth {
         responseType: 'token id_token',
         scope: 'openid profile'
     });
+    
+    userProfile;
 
     constructor() {
         this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
         this.handleAuthentication = this.handleAuthentication.bind(this);
         this.isAuthenticated = this.isAuthenticated.bind(this);
+        this.getAccessToken = this.getAccessToken.bind(this);
         this.getProfile = this.getProfile.bind(this);
     }
-    userProfile;
-    getAccessToken() {
-        const accessToken = this.localStorage.getItem('access_token')
-        if (!accessToken) {
-            throw new Error ('no access token found')
-        }
-        return accessToken;
-    }
 
-    getProfile(callback) {
-        let accessToken = this.getAccessToken();
-        this.auth0.client.userInfo(accessToken, (error, profile) => {
-            if (profile) {
-                this.userProfile = profile;
-            }
-            callback(error, profile)
-        })
-    }
     
     login() {
         this.auth0.authorize();
@@ -65,12 +51,30 @@ export default class Auth {
         // navigate to the home route
         history.replace('/home');
     }
+    getAccessToken() {
+        const accessToken = localStorage.getItem('access_token')
+        if (!accessToken) {
+            throw new Error ('no access token found')
+        }
+        return accessToken;
+    }
+
+    getProfile(cb) {
+        let accessToken = this.getAccessToken();
+        this.auth0.client.userInfo(accessToken, (err, profile) => {
+            if (profile) {
+                this.userProfile = profile;
+            }
+            cb(err, profile)
+        })
+    }
 
     logout() {
         // Clear access token and ID token from local storage
         localStorage.removeItem('access_token');
         localStorage.removeItem('id_token');
         localStorage.removeItem('expires_at');
+        this.userProfile = null;
         // navigate to the home route
         history.replace('/home');
     }
