@@ -3,6 +3,7 @@ import auth0 from 'auth0-js';
 import { AUTH_CONFIG } from './auth0-variables';
 
 export default class Auth {
+    
     auth0 = new auth0.WebAuth({
         domain: 'tclark.auth0.com',
         clientID: 'u7iTOVDjbr4hW4t3DlnPmAR3SI09Fwc4',
@@ -23,7 +24,7 @@ export default class Auth {
     getAccessToken() {
         const accessToken = this.localStorage.getItem('access_token')
         if (!accessToken) {
-            throw new error ('no access token found')
+            throw new Error ('no access token found')
         }
         return accessToken;
     }
@@ -34,7 +35,7 @@ export default class Auth {
             if (profile) {
                 this.userProfile = profile;
             }
-            callback(err, profile);
+            callback(error, profile)
         })
     }
     

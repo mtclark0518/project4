@@ -15,5 +15,13 @@ class Profile extends Component {
     }
     render() {
         const { profile } = this.state;
+        return (
+            <div>
+                <h1>{profile.name}</h1>
+                <h1>You rock!</h1>
+            </div>
+        )
     }
 }
+
+export default Profile;
