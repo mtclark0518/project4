@@ -12,18 +12,29 @@ const appCNTL = {
     //create
     //update
     //destroy
+
+
     //TEACHERS(USERS)
     getTeachers: function(req, res) {
-        db.models.Teachers.findAll().then(function(teachers) {
+        db.models.Teacher.findAll().then(function(teachers) {
             console.log('here are your teachers');
             res.json(teachers);
         });
     },
     findOrCreateTeacher: function(req, res) {
-        db.models.Teachers.findOrCreate({ where: { auth: req.body.account_id } }).then(function(teacher) {
+        db.models.Teacher.findOrCreate({ where: { auth: req.body.account_id } }).then(function(teacher) {
             console.log('heres your new or found teacher');
             res.json(teacher);
         });
+    },
+
+    
+    //STUDENTS
+    getStudents: function(req, res) {
+        db.models.Student.findAll().then(function(students) {
+            console.log('here are the students');
+            res.json(students);
+        })
     },
 
 

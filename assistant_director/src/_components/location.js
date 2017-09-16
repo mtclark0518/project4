@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import Student from '../_components/student'
 
 class Location extends Component {
 
@@ -14,8 +15,9 @@ state = {locations : []}
             <div className="Location">
                     {this.state.locations.map(location => 
                     <div key={location.id}>
-                      <h1>  {location.name} </h1>
-                      <p> Capacity: {location.studentCapacity} </p>
+                        <h1>  {location.name} </h1>
+                        <p> Capacity: {location.studentCapacity} </p>
+                        <Student />
                     </div>
                     )}
             </div>

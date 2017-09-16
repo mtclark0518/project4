@@ -11,7 +11,8 @@ router.get('/api/teachers', appCNTL.getTeachers);
 //show or create a teacher
 // router.post('/api/teachers/:id', appCNTL.findOrCreateTeacher);
 
-
+//get all students
+router.get('/api/students', appCNTL.getStudents);
 //show all possible locations
 router.get('/api/locations', appCNTL.showLocations);
 //add some locations
