@@ -43,12 +43,12 @@ class Location extends Component {
                 <div className={this.state.active}>
                 {
                     this.state.active === true && (
-                        <p>{classRoster}</p>
+                        <div>{classRoster}</div>
                     )
                 }
                 {
                     this.state.active === false && (
-                        <p>{classRoster.length}</p>
+                        <div>{classRoster.length} : {this.props.studentCapacity}</div>
                     )
                 }
                 </div>
