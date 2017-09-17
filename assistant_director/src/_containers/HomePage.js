@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import LocationContainer from './LocationContainer';
-import '../_styles/main.css'
-import StudentContainer from './StudentContainer'
+import StudentContainer from './StudentContainer';
+import '../_styles/main.css';
+
 class HomePage extends Component {
 	
 	login = () => this.props.auth.login()
@@ -22,14 +23,14 @@ class HomePage extends Component {
 			{
 				isAuthenticated() && (
 					<div>
-						<h3>
+						<div>
 							<Link to="profile"><span className='link'>link</span></Link>
-						</h3>
+						</div>
 						<div>
 							<LocationContainer />
 						</div>
 						<div>
-							{/* <StudentContainer /> */}
+							<StudentContainer /> 
 						</div>
 					</div>
 				)

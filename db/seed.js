@@ -1,20 +1,24 @@
 const db = require('../models/index.js');
 const DB = db.models;
 
-const testLocation = {
-    name: 'classroom_1',
-    studentCapacity: 24
-};
-const anotherTest = {
-    name: 'classroom_2',
-    studentCapacity: 17
-};
-const home = {
-    name: 'home',
-    //set irrationally high for now but
-    //as program builds this is set to enrollment number
-    studentCapacity: 500
-};
+const locations =[
+    {
+        name: 'gryffindor',
+        studentCapacity: 24
+    },
+    {
+        name: 'slytherin',
+        studentCapacity: 21
+    },
+    {
+        name: 'hufflepuff',
+        studentCapacity: 23
+    },
+    {
+        name: 'ravenclaw',
+        studentCapacity: 30
+    }
+];
 
 
 var students = [
@@ -37,13 +41,13 @@ var students = [
         isPresent: false,
     }
 ];
-var createLocation = function(location) {
-    return DB.Location.create(location);
+var createLocation = function() {
+    return DB.Location.bulkCreate(locations);
 }
 var createStudents = function() {
     return DB.Student.bulkCreate(students);
 }
 
-createStudents().then(createLocation(testLocation)).then(createLocation(anotherTest)).then(createLocation(home)).then(function() {
+createStudents().then(createLocation().then(function() {
     process.exit();
-});
+}));

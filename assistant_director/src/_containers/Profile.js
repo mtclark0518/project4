@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import '../App.css'
 import Location from '../_components/location'
-
+import '../_styles/main.css'
 class Profile extends Component {
 
     componentWillMount(){

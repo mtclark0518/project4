@@ -9,11 +9,14 @@ class StudentContainer extends Component {
         }
     }
 	componentDidMount() {
+		this.fetchStudents();
+
+	}
+	fetchStudents(){
 		fetch('/api/students')
 		.then(res => res.json())
-        .then(students => this.setState({students}))
-	}
-	
+		.then(students => this.setState({students}))}
+		
 	getStudents = () => this.state.students.length
 
 	render() {

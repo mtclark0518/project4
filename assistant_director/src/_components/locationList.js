@@ -6,15 +6,18 @@ import Location from './location'
 class LocationList extends Component {
 
     render(){
+        let locationArray = this.props.locations.map( (location, index) => {
+            return(
+                <Location 
+                    key={index}
+                    name={location.name}
+                    studentCapacity={location.studentCapacity}/>
+            )   
+        })
         return(
-            <ul>
-                {props.locations.map((location, index) =>
-                    <Location
-                        key={index} 
-                        name={location.name}
-                        studentCapacity={location.studentCapacity} />
-                )}
-            </ul>
+            <div className='locations'>
+                {locationArray}
+            </div>
         )
     }
 }

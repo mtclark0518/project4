@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import LocationList from '../_components/studentList';
+import LocationList from '../_components/locationList';
 import '../_styles/main.css'
+
 class LocationContainer extends Component {
     
     constructor() {
