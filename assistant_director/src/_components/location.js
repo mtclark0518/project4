@@ -18,7 +18,8 @@ class Location extends Component {
     } 
         
     render() {
-
+        const activeState = this.state.active
+        console.log(activeState)
         let classRoster = this.props.students.map( (student) => {
             return(<Student
                 key={student.id}
@@ -36,10 +37,21 @@ class Location extends Component {
                 <div 
                     className='heading'
                     onClick={this.activate}>
-
                         <h3>{ this.props.name} - {this.props.id}</h3>
                 </div>
 
+                <div className={this.state.active}>
+                {
+                    this.state.active === true && (
+                        <p>{classRoster}</p>
+                    )
+                }
+                {
+                    this.state.active === false && (
+                        <p>{classRoster.length}</p>
+                    )
+                }
+                </div>
 
              </div> 
         ) 
