@@ -135,14 +135,14 @@ var students = [
         firstName: 'stewart',
         lastName: 'ackerley',
         gender: 'male',
-        pin: 100014,
+        pin: 10014,
         location: ravenclaw        
     },
     {
         firstName: 'millicent',
         lastName: 'bulstrode',
         gender: 'female',
-        pin: 100015,
+        pin: 10015,
         location: slytherin        
     },
     {
@@ -163,7 +163,7 @@ var students = [
         firstName: 'draco',
         lastName: 'malfoy',
         gender: 'male',
-        pin: 100018,
+        pin: 10018,
         location: slytherin        
     },
     {
