@@ -1,24 +1,17 @@
-import React, {Component} from 'react'
 
+
+import React,{Component} from 'react'
+import '../_styles/main.css'
 
 class Student extends Component {
-    state = {students: []}
 
-    componentDidMount() {
-        fetch('/api/students')
-        .then(res => res.json())
-        .then(students => this.setState({students}))
-    }
-    
     render(){
         return(
-            <div className="Student">
-                This is a student component
-                {this.state.students.map(student =>
-                    <h1>{student.firstName}</h1>
-                )}
-            </div>
-        )
-    }
+        <div>
+            <span>{this.props.firstName} {this.props.lastName}</span>
+        </div>
+        )}
+
 }
 export default Student
+

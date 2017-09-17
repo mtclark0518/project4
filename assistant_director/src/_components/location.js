@@ -1,27 +1,19 @@
+
 import React, {Component} from 'react'
-import Student from '../_components/student'
+import PropTypes from 'prop-types'
+import '../_styles/main.css'
+import StudentContainer from '../_containers/StudentContainer'
 
 class Location extends Component {
 
-state = {locations : []}
-    componentDidMount() {
-        fetch('/api/locations')
-        .then(res => res.json())
-        .then(locations => this.setState({locations}))
-        console.log(this.state);
-    }
-    render() {
-        return (
-            <div className="Location">
-                    {this.state.locations.map(location => 
-                    <div key={location.id}>
-                        <h1>  {location.name} </h1>
-                        <p> Capacity: {location.studentCapacity} </p>
-                        <Student />
-                    </div>
-                    )}
-            </div>
+    render(){
+        return(
+        <li>
+            <h3>{this.props.name} - {this.props.studentCapacity}</h3>
+        </li>
         )
     }
 }
 export default Location
+
+

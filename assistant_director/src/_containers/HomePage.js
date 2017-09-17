@@ -1,30 +1,42 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
+import LocationContainer from './LocationContainer';
+import '../_styles/main.css'
+import StudentContainer from './StudentContainer'
 class HomePage extends Component {
-    login() {
-        this.props.auth.login();
-    }
-    render() {
-        const { isAuthenticated } = this.props.auth;
-        return ( 
-            <div className = "container" > 
-            {
-                isAuthenticated() && (
-                    <h3><Link to="profile">link</Link></h3>
-                )
+	
+	login = () => this.props.auth.login()
 
-            } 
-            {
-                !isAuthenticated() && ( 
-                    <h4>
-                    You are not logged in !Please { ' ' } 
-                    <a style = {{ cursor: 'pointer' } } onClick = { this.login.bind(this) }> Log In </a> { ' ' } to continue. 
-                    </h4>
-                )
-            } </div>
-        );
-    }
+	render() {
+		const { isAuthenticated } = this.props.auth;
+		return ( 
+			<div className = "container" > 
+			{
+				!isAuthenticated() && ( 
+					<h4>
+					You are not logged in !Please { ' ' } 
+					<a style = {{ cursor: 'pointer' } } onClick = { this.login.bind(this) }> Log In </a> { ' ' } to continue. 
+					</h4>
+				)
+			}
+			{
+				isAuthenticated() && (
+					<div>
+						<h3>
+							<Link to="profile"><span className='link'>link</span></Link>
+						</h3>
+						<div>
+							<LocationContainer />
+						</div>
+						<div>
+							{/* <StudentContainer /> */}
+						</div>
+					</div>
+				)
+			}
+			</div> 
+		);
+	}
 }
 
-export default HomePage;
+export default HomePage
