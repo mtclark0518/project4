@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import LocationContainer from './LocationContainer';
-import StudentContainer from './StudentContainer';
 import '../_styles/main.css';
 
 class HomePage extends Component {
@@ -29,7 +28,7 @@ class HomePage extends Component {
 							</Link>
 						</div>
 						<div><LocationContainer /></div>
-						<div><StudentContainer /></div>
+						
 					</div>
 				)
 			}

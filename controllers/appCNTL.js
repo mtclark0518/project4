@@ -50,7 +50,17 @@ const appCNTL = {
             console.log('here are your locations');
             res.json(locations);
         });
-    }
+    },
+
+    // studentLocations: function(req, res) {
+    //     db.models.Location.findAll({
+    //         include: [{
+    //             model: db.models.Student,
+    //             where: { locationId: Sequelize.col('location.id') }
+    //         }]
+    //     });
+    // }
+
 };
 
 

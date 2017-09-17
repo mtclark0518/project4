@@ -8,7 +8,7 @@ class Student extends Component {
     render(){
         return(
         <div>
-            <span>{this.props.firstName} {this.props.lastName}</span>
+            <span>{this.props.firstName} {this.props.lastName} - {this.props.location}</span>
         </div>
         )}
 

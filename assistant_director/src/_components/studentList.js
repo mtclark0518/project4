@@ -10,6 +10,7 @@ class StudentList extends Component {
             return(
                 <Student 
                     key={index}
+                    location={student.locationId}
                     firstName={student.firstName}
                     lastName={student.lastName} />
             )   
