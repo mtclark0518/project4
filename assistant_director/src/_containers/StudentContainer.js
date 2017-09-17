@@ -22,7 +22,8 @@ class StudentContainer extends Component {
 	render() {
 		return ( 
 			<div className = "container" > 
-			    <StudentList
+				<div>{this.getStudents()}</div>			    
+				<StudentList
                     students={this.state.students} /> 
             </div>
 		)

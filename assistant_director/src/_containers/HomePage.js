@@ -24,14 +24,12 @@ class HomePage extends Component {
 				isAuthenticated() && (
 					<div>
 						<div>
-							<Link to="profile"><span className='link'>link</span></Link>
+							<Link to="profile">
+								<span className='link'>link</span>
+							</Link>
 						</div>
-						<div>
-							<LocationContainer />
-						</div>
-						<div>
-							<StudentContainer /> 
-						</div>
+						<div><LocationContainer /></div>
+						<div><StudentContainer /></div>
 					</div>
 				)
 			}

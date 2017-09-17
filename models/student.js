@@ -14,6 +14,10 @@ module.exports = function(sequelize, Sequelize) {
         isPresent: {
             type: Sequelize.BOOLEAN,
             notNull: true
+        },
+        pin: {
+            type: Sequelize.INTEGER,
+            notNull: true
         }
     });
     return student;

@@ -12,7 +12,7 @@ const Student = sequelize.import('./student');
 //----------_------------------_-------------_----_---------
 // define model relatioships
 //----------_------------------_-------------_----_---------
-Location.hasMany(Student);
+Location.belongsToMany(Student, {through: 'student_location'});
 Location.hasMany(Teacher);
 Student.belongsToMany(Location, { through: 'student_location' });
 Teacher.belongsToMany(Location, { through: 'teacher_location' });

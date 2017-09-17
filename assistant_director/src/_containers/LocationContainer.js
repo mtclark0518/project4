@@ -20,7 +20,8 @@ class LocationContainer extends Component {
 
 	render() {
 		return ( 
-			<div className = "container" > 
+			<div className = "container" >
+				<div>{this.getLocations()}</div> 
 			    <LocationList
                     locations={this.state.locations} /> 
             </div>
