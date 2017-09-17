@@ -1,195 +1,199 @@
 const db = require('../models/index.js');
 const DB = db.models;
-const gryffindor = 'gryffindor'
-const slytherin = 'slytherin'
-const hufflepuff = 'hufflepuff'
-const ravenclaw = 'ravenclaw'
+
+
 const locations =[
     {
         name: 'gryffindor',
-        studentCapacity: 24,
-        students:[
-            {
-                firstName: 'harry',
-                lastName: 'potter',
-            }
-        ]
+        studentCapacity: 12,  
     },
     {
         name: 'slytherin',
-        studentCapacity: 21
+        studentCapacity: 13
     },
     {
         name: 'hufflepuff',
-        studentCapacity: 23
+        studentCapacity: 10
     },
     {
         name: 'ravenclaw',
-        studentCapacity: 30
+        studentCapacity: 12
     }
 ];
 
 
 var students = [
     {
+        locationId: '1',
         firstName: 'harry',
         lastName: 'potter',
         gender: 'male',
         pin: 10000,
-        location: 'gryffindor',
         
     },
     {
+        locationId: '1',
         firstName: 'ron',
         lastName: 'weasly',
         gender: 'male',
         pin: 10001,
-        location: 'gryffindor'
         
     },
     {
+        locationId: '1',
         firstName: 'hermione',
         lastName: 'granger',
         gender: 'female',
         pin: 10002,
-        location: 'gryffindor'
     },
     {
         firstName: 'angelina',
         lastName: 'johnson',
         gender: 'female',
         pin: 10003,
-        location: 'gryffindor'
+        locationId: '1'
     },
     {
         firstName: 'hannah',
         lastName: 'abbot',
         gender: 'female',
         pin: 10004,
-        location: 'hufflepuff'
+        locationId: '3'
     },
     {
         firstName: 'justin',
         lastName: 'finch-fletchley',
         gender: 'male',
         pin: 10005,
-        location: hufflepuff
+        locationId: 3
     },
     {
         firstName: 'susan',
         lastName: 'bones',
         gender: 'female',
         pin: 10006,
-        location: hufflepuff        
+        locationId: 3        
     },
     {
         firstName: 'cedric',
         lastName: 'diggory',
         gender: 'male',
         pin: 10007,
-        location: hufflepuff        
+        locationId: 3        
     },
     {
         firstName: 'ernie',
         lastName: 'macmillan',
         gender: 'male',
         pin: 10008,
-        location: hufflepuff        
+        locationId: 3        
     },
     {
         firstName: 'terry',
         lastName: 'boot',
         gender: 'male',
         pin: 10009,
-        location: ravenclaw        
+        locationId: 4       
     },
     {
         firstName: 'michael',
         lastName: 'corner',
         gender: 'male',
         pin: 10010,
-        location: ravenclaw        
+        locationId: 4        
     },
     {
         firstName: 'padma',
         lastName: 'patil',
         gender: 'female',
         pin: 10011,
-        location: ravenclaw        
+        locationId: 4        
     },
     {
         firstName: 'cho',
         lastName: 'chang',
         gender: 'female',
         pin: 10012,
-        location: ravenclaw        
+        locationId: 4        
     },
     {
         firstName: 'luna',
         lastName: 'lovegood',
         gender: 'female',
         pin: 10013,
-        location: ravenclaw        
+        locationId: 4        
     },
     {
         firstName: 'stewart',
         lastName: 'ackerley',
         gender: 'male',
         pin: 10014,
-        location: ravenclaw        
+        locationId: 4        
     },
     {
         firstName: 'millicent',
         lastName: 'bulstrode',
         gender: 'female',
         pin: 10015,
-        location: slytherin        
+        locationId: 2        
     },
     {
         firstName: 'vincent',
         lastName: 'crabbe',
         gender: 'male',
         pin: 10016,
-        location: slytherin        
+        locationId: 2        
     },
     {
         firstName: 'gregory',
         lastName: 'goyle',
         gender: 'male',
         pin: 10017,
-        location: slytherin        
+        locationId: 2        
     },
     {
         firstName: 'draco',
         lastName: 'malfoy',
         gender: 'male',
         pin: 10018,
-        location: slytherin        
+        locationId: 2        
     },
     {
         firstName: 'blaise',
         lastName: 'zabini',
         gender: 'male',
         pin: 10019,
-        location: slytherin        
+        locationId: 2        
     },
     {
         firstName: 'neville',
         lastName: 'longbottom',
         gender: 'male',
         pin: 10020,
-        location: gryffindor        
+        locationId: 1        
     },
 
 
 ];
 var createLocation = function() {
-    return DB.Location.bulkCreate(locations);
+    return DB.Location.bulkCreate(locations, {
+        include:[
+            {model: DB.Student}
+        ]
+    });
 }
+createLocation();
+
 var createStudents = function() {
-    return DB.Student.bulkCreate(students, {include:[{associations: DB.Student.Location}]});
+    return DB.Student.bulkCreate(students, {include:[
+        {association: DB.Location}
+    ]})
 }
 
-createStudents().then(createLocation().then(function() {
+
+createStudents().then(function() {
     process.exit();
-}));
+})
+
+
+

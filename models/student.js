@@ -1,24 +1,27 @@
 module.exports = function(sequelize, Sequelize) {
     var student = sequelize.define('student', {
+        id: {
+            type: Sequelize.INTEGER,
+            primaryKey: true,
+            autoIncrement: true,
+            allowNull: false
+        },
+        locationId: {
+            type: Sequelize.INTEGER,
+            allowNull: false
+        },
         firstName: {
             type: Sequelize.STRING
         },
         lastName: {
             type: Sequelize.STRING
         },
-        // birthday: {
-        //     type: Sequelize.DATEONLY,
-        //     notNull: true
-        // },
         gender: Sequelize.STRING,
-        isPresent: {
-            type: Sequelize.BOOLEAN,
-            notNull: true
-        },
         pin: {
             type: Sequelize.INTEGER,
             notNull: true
-        }
+        },
+
     });
     return student;
 };
