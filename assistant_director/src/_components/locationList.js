@@ -5,13 +5,14 @@ import Student from './student'
 
 class LocationList extends Component {        
     render(){
-        let studentArray = this.props.students.map( (student, index) => {
+        let studentArray = this.props.students.map( (student) => {
             return(<Student
-                key={index}
+                key={student.id}
+                location={student.locationId}                 
                 student={student}                
-                id={student.id}
-                location={student.locationId} />)
+                id={student.id} />)
         })
+        console.log(studentArray)
         let locationArray = this.props.locations.map( (location) => {
             return(
                 <Location 
@@ -19,12 +20,18 @@ class LocationList extends Component {
                     id={location.id}
                     students={location.students}
                     name={location.name}
-                    studentCapacity={location.studentCapacity}/>
+                    studentCapacity={location.studentCapacity}
+                    studentArray={studentArray}/>
                 )   
         })
         return(
-            <div className='locations'>
-                {locationArray}
+            <div>
+                <div className='locations'>
+                    {locationArray}
+                <div>
+                </div>
+                    
+                </div>
             </div>
         )
     }
