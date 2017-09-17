@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import LocationList from '../_components/locationList';
 import '../_styles/main.css'
 
-class LocationContainer extends Component {
+class Container extends Component {
     
     constructor() {
         super();
@@ -21,11 +21,13 @@ class LocationContainer extends Component {
 	}
 	
 	getLocations = () => this.state.locations.length
-
+	getStudents = () => this.state.students.length
+	
 	render() {
 		return ( 
 			<div className = "container" >
 				<div>{this.getLocations()}</div> 
+				<div>{this.getStudents()} / </div>
 			    <LocationList
                     locations={this.state.locations}
 					students={this.state.students} /> 
@@ -34,4 +36,4 @@ class LocationContainer extends Component {
 	}
 }
 
-export default LocationContainer;
+export default Container;

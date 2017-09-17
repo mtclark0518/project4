@@ -18,7 +18,7 @@ class LocationList extends Component {
                 <Location 
                     key={index}
                     id={location.id}
-                    location={location}
+                    students={location.students}
                     name={location.name}
                     studentCapacity={location.studentCapacity}/>
             )   

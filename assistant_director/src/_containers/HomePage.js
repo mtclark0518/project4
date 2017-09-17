@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import LocationContainer from './LocationContainer';
+import Container from './Container';
 import '../_styles/main.css';
 
 class HomePage extends Component {
@@ -27,7 +27,7 @@ class HomePage extends Component {
 								<span className='link'>link</span>
 							</Link>
 						</div>
-						<div><LocationContainer /></div>
+						<div><Container /></div>
 						
 					</div>
 				)
