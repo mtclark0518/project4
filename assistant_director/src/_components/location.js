@@ -6,7 +6,19 @@ class Location extends Component {
 
     render(){
         return(
-            <div>{this.props.name} - {this.props.studentCapacity}</div>
+            <div className={this.props.name}>
+                <div className='heading'>
+                    <h3>{this.props.name}</h3>
+                </div>
+                <div className='locationDetails'>
+                    <div className="detail">
+                        {/* <StudentCounter /> */}
+                    </div>
+                    <div className="detail">
+                        {this.props.studentCapacity}
+                    </div>
+                </div>
+            </div>
         )
     }
 }

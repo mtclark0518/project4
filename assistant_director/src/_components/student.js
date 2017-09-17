@@ -7,9 +7,9 @@ class Student extends Component {
 
     render(){
         return(
-        <li>
+        <div>
             <span>{this.props.firstName} {this.props.lastName}</span>
-        </li>
+        </div>
         )}
 
 }

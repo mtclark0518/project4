@@ -6,10 +6,11 @@ import Location from './location'
 class LocationList extends Component {
 
     render(){
-        let locationArray = this.props.locations.map( (location, index) => {
+        let locationArray = this.props.locations.map( (location) => {
             return(
                 <Location 
-                    key={index}
+                    key={location.id}
+                    location={location}
                     name={location.name}
                     studentCapacity={location.studentCapacity}/>
             )   
@@ -22,25 +23,4 @@ class LocationList extends Component {
     }
 }
 export default LocationList
-// class LocationList extends Component {
 
-    // state = {
-    //     students : [],
-    // }
-    // // componentDidMount() {
-    // //     fetch('/api/locations')
-    // //     .then(res => res.json())
-    // //     .then(locations => this.setState({locations}))
-    // //     console.log(this.state);
-    // // }
-    // getStudents = () => this.state.students.length
-
-
-
-
-// render(){
-//     return()
-
-
-// }
-// }

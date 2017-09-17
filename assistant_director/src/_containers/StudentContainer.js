@@ -17,12 +17,25 @@ class StudentContainer extends Component {
 		.then(res => res.json())
 		.then(students => this.setState({students}))}
 		
-	getStudents = () => this.state.students.length
+	getStudents = () => this.state.students
+
+	studentLocation = function(){
+		let students = this.getStudents()
+		let location = students.locationId
+		return location;
+		}
+
+	allStudents = () => {
+		let students = this.getStudents();
+		return students.length
+		}
+	
+	
 
 	render() {
 		return ( 
 			<div className = "container" > 
-				<div>{this.getStudents()}</div>			    
+				<div>{this.allStudents()}</div>			    
 				<StudentList
                     students={this.state.students} /> 
             </div>

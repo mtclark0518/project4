@@ -40,7 +40,13 @@ const appCNTL = {
 
     //LOCATIONS
     showLocations: function(req, res) {
-        db.models.Location.findAll().then(function(locations) {
+        db.models.Location.findAll({
+            include: [
+                {
+                    model: db.models.Student
+                }
+            ]
+        }).then(function(locations) {
             console.log('here are your locations');
             res.json(locations);
         });

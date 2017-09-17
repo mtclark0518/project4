@@ -176,24 +176,19 @@ var students = [
 
 ];
 var createLocation = function() {
-    return DB.Location.bulkCreate(locations, {
-        include:[
-            {model: DB.Student}
-        ]
-    });
+    return DB.Location.bulkCreate(locations);
 }
-createLocation();
 
 var createStudents = function() {
-    return DB.Student.bulkCreate(students, {include:[
-        {association: DB.Location}
-    ]})
+    return DB.Student.bulkCreate(students)
 }
 
 
-createStudents().then(function() {
-    process.exit();
-})
+createLocation()
+    .then(createStudents()
+    .then(function() {
+        process.exit();
+}))
 
 
 
