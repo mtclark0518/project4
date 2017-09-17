@@ -1,5 +1,11 @@
 module.exports = function(sequelize, Sequelize) {
     var location = sequelize.define('location', {
+        id: {
+            type: Sequelize.INTEGER,
+            primaryKey: true,
+            autoIncrement: true,
+            allowNull: false
+        },
         name: {
             type: Sequelize.STRING
         },
@@ -7,11 +13,6 @@ module.exports = function(sequelize, Sequelize) {
             type: Sequelize.INTEGER,
             notNull: true
         },
-        currentStudents: {
-            type: Sequelize.INTEGER,
-            notNull: false
-        }
-
     });
     return location;
 };

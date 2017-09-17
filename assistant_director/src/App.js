@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './App.css';
+import './_styles/main.css';
 
 class App extends Component {
   
   goTo(route) {this.props.history.replace( `/${route}`)}
 
-  login() { console.log(this);this.props.auth.login(); }
+  login() {this.props.auth.login(); }
  
   logout() { this.props.auth.logout(); }
  

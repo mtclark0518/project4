@@ -1,0 +1,23 @@
+.App-header {
+    background-color: #222;
+    height: 50px;
+    padding: 20px;
+    color: white;
+}
+
+.container {
+    width: 85%;
+    margin: auto;
+}
+
+span.link {
+    color: green;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 25px;
+}

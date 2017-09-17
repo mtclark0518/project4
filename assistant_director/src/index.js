@@ -4,7 +4,7 @@ import './index.css';
 
 // import registerServiceWorker from './registerServiceWorker';
 
-import { makeMainRoutes } from './routes';
+import { makeMainRoutes } from './_config/routes';
 const routes = makeMainRoutes();
 
 ReactDOM.render(
