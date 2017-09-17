@@ -10,7 +10,8 @@ class LocationList extends Component {
                 key={student.id}
                 location={student.locationId}                 
                 student={student}                
-                id={student.id} />)
+                id={student.id}
+                onMoveStudent={this.props.onMoveStudent} />)
         })
         console.log(studentArray)
         let locationArray = this.props.locations.map( (location) => {
@@ -18,6 +19,7 @@ class LocationList extends Component {
                 <Location 
                     key={location.id}
                     id={location.id}
+                    onMoveStudent={this.props.onMoveStudent}
                     students={location.students}
                     name={location.name}
                     studentCapacity={location.studentCapacity}

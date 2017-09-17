@@ -27,7 +27,8 @@ class Location extends Component {
                 firstName={student.firstName} 
                 lastName={student.lastName}
                 gender={student.gender}
-                pin={student.pin}/>)
+                pin={student.pin}
+                onMoveStudent={this.props.onMoveStudent}/>)
         })
         console.log(classRoster)
 
