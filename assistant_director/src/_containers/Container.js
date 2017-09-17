@@ -4,8 +4,8 @@ import '../_styles/main.css'
 
 class Container extends Component {
     
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
 			locations: [],
 			students: []
@@ -23,6 +23,7 @@ class Container extends Component {
 	getLocations = () => this.state.locations.length
 	getStudents = () => this.state.students.length
 	
+	 
 	render() {
 		return ( 
 			<div className = "container" >

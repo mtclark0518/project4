@@ -3,8 +3,7 @@ import Location from './location'
 import Student from './student'
 
 
-class LocationList extends Component {
-
+class LocationList extends Component {        
     render(){
         let studentArray = this.props.students.map( (student, index) => {
             <Student
@@ -13,15 +12,15 @@ class LocationList extends Component {
                 id={student.id}
                 location={student.locationId} />
         })
-        let locationArray = this.props.locations.map( (location, index) => {
+        let locationArray = this.props.locations.map( (location) => {
             return(
                 <Location 
-                    key={index}
+                    key={location.id}
                     id={location.id}
                     students={location.students}
                     name={location.name}
                     studentCapacity={location.studentCapacity}/>
-            )   
+                )   
         })
         return(
             <div className='locations'>
