@@ -22,16 +22,19 @@ class Container extends Component {
         .then(students => this.setState({students})))
 	}
 	
-	update(student, id) {
-        console.log(student)
-		fetch('/api/students/' + id, {
-            method: 'PUT',
+	update(location, pin) {
+        console.log(location + pin)
+		fetch('/api/students/' + pin, {
+			method: 'PUT',
+			body: location
             // body: formData,
         })
 	}
 
-	moveStudent(student, id) {
-		this.update(student, id)//code move student as update
+	moveStudent(location, pin) {
+		console.log(location)
+		console.log(pin)
+		this.update(location, pin)//code move student as update
 		.then(this.componentDidMount())
 	}
 	

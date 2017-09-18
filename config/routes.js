@@ -13,6 +13,10 @@ router.get('/api/teachers', appCNTL.getTeachers);
 
 //get all students
 router.get('/api/students', appCNTL.getStudents);
+//show a student
+router.get('/api/students/:pin', appCNTL.showStudent);
+//update a student
+router.put('/api/students/:pin', appCNTL.updateStudent);
 //show all possible locations
 router.get('/api/locations', appCNTL.showLocations);
 //add some locations

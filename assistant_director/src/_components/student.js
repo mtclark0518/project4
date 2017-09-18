@@ -10,10 +10,10 @@ class Student extends Component {
         this.state = {
             updating: false
         }
-        this.moveStudent = this.moveStudent.bind(this)
+        this.update = this.update.bind(this)
     }
 
-    moveStudent(){
+    update(){
         this.setState(prevState => ({
             updating : !prevState.updating
         }))
@@ -21,13 +21,33 @@ class Student extends Component {
 
     }
     render(){
+        let updateStudent = this.state.updating          
         return(
         <div>
-            <span>{this.props.firstName} {this.props.lastName} - {this.props.location}
+            {
+                updateStudent === true && (
+                    <div className="updateStudent">
+                        <UpdateStudent
+                            student={this.props}
+                            onMoveStudent={this.props.onMoveStudent} />
+                        <button
+                            onClick={this.update}>cancel
+                        </button>
+                    </div>
+                )
+            }
+            {
+                updateStudent === false && (
+            <span>
+                    {this.props.firstName} {this.props.lastName} - {this.props.location}
+                
                 <button
-                    onClick={this.moveStudent}>MOVE
+                    onClick={this.update}>MOVE
                 </button>
             </span>
+                )
+            }
+
         </div>
         )}
 

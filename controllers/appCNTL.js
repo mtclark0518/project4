@@ -36,6 +36,17 @@ const appCNTL = {
             res.json(students);
         })
     },
+    showStudent: function(req,res){
+        db.models.Student.findOne({
+            where: {
+                pin: req.body.pin
+            }
+        }).then(function(student) {
+            console.log('here is your student');
+            res.json(student);
+        });
+    },
+    updateStudent: function(req,res){},
 
 
     //LOCATIONS

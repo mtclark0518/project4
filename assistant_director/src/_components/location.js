@@ -20,10 +20,10 @@ class Location extends Component {
     render() {
         const activeState = this.state.active
         console.log(activeState)
-        let classRoster = this.props.students.map( (student) => {
+        let classRoster = this.props.students.map( (student, index) => {
             return(<Student
-                key={student.id}
-                location={this.props.name}
+                key={index}
+                location={student.locationId}
                 firstName={student.firstName} 
                 lastName={student.lastName}
                 gender={student.gender}

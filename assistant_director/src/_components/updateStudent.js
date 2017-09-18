@@ -5,38 +5,40 @@ class UpdateStudent extends Component {
 	constructor() {
 		super();
 		this.state = {
-			updatedStudentLocation: '',
+			value: " ",
 		}
 	}
 	onInputChange(event){
 		console.log('edit todo input has changed');
 		this.setState({
-			updatedStudentLocation: event.target.value,
+			value: event.target.value,
 		});
 	}
 
 	onFormSubmit(event) {
-		event.preventDefault();
-		console.log(this.state);
+        event.preventDefault();
+        console.log(this.props.student.firstName)
+        console.log(this.state.value);
 		console.log('edit submitted');
-		this.props.onMoveStudent(this.state.updatedStudentLocation, this.props.student.id);
+		this.props.onMoveStudent(this.state.value, this.props.student.pin);
 		this.setState({
-			updatedStudentLocation: '',
+			value: '',
 		});
 
 	}
 	render() {
 		return(
 			<div className="UpdateStudent">
-				<form
-					onSubmit={event => this.onFormSubmit(event)}>
-					<input
-						onChange={event => this.onInputChange(event)}
-						placeholder="update location"
-						type="number"
-						value={this.state.updatedStudentLocation}
-						/>
-					<button type="submit">update</button>
+				<form onSubmit={event => this.onFormSubmit(event)}>
+                    <div>
+                        <input
+                            onChange={event => this.onInputChange(event)}
+                            placeholder={this.props.student.location}
+                            type="number"
+                            value={this.state.value}
+                            />
+                        <button type="submit">update</button>
+                    </div>
 				</form>
 			</div>
 		)
