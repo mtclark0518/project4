@@ -8,8 +8,14 @@ class UpdateStudent extends Component {
 			value: " ",
 		}
 	}
+	
+	componentWillReceiveProps(newProps) {
+  		if (this.state.name !== newProps.name) {
+    	this.setState({name: newProps.name});
+  		}
+	}
 	onInputChange(event){
-		console.log('edit todo input has changed');
+		console.log('input has changed');
 		this.setState({
 			value: event.target.value,
 		});
@@ -17,10 +23,9 @@ class UpdateStudent extends Component {
 
 	onFormSubmit(event) {
         event.preventDefault();
-        console.log(this.props.student.firstName)
-        console.log(this.state.value);
 		console.log('edit submitted');
-		this.props.onMoveStudent(this.props.student, this.state.value, this.props.student.pin);
+		console.log(this.props.updating)
+		this.props.onMoveStudent(this.state.value, this.props.student.id);
 		this.setState({
 			value: '',
 		});
@@ -33,7 +38,6 @@ class UpdateStudent extends Component {
                     <div>
                         <input
                             onChange={event => this.onInputChange(event)}
-                            placeholder={this.props.student.location}
                             type="number"
                             value={this.state.value}
                             />

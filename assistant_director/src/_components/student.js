@@ -28,6 +28,7 @@ class Student extends Component {
                 updateStudent === true && (
                     <div className="updateStudent">
                         <UpdateStudent
+                            updating={this.state.updating}
                             student={this.props}
                             onMoveStudent={this.props.onMoveStudent} />
                         <button
@@ -39,7 +40,7 @@ class Student extends Component {
             {
                 updateStudent === false && (
             <span>
-                    {this.props.firstName} {this.props.lastName} - {this.props.location}
+                    {this.props.firstName} {this.props.lastName}
                 
                 <button
                     onClick={this.update}>MOVE

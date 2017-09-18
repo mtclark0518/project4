@@ -31,13 +31,19 @@ const appCNTL = {
             where: {
                 pin: req.body.pin
             }
-        }).then(function(student) {
+        }).then(student => {
+            student.updateAttributes({
+                locationId: req.body.location
+            }).then(updatedStudent => {
+                console.log(updatedStudent)
+                res.json(student);
+            })
             console.log('here is your student');
             res.json(student);
         });
     },
     updateStudent: function(req,res){
-        console.log(req)
+        console.log(req.body)
         db.models.Student.findOne({
             where: {
                 id: req.body.id
