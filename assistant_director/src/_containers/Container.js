@@ -11,9 +11,10 @@ class Container extends Component {
 			students: []
         }
 	}
-	fetchData(){}
-
 	componentDidMount() {
+		this.fetchData()
+	}
+	fetchData(){
 		fetch('/api/locations')
 		.then(res => res.json())
 		.then(locations => this.setState({locations}))
@@ -22,21 +23,17 @@ class Container extends Component {
         .then(students => this.setState({students})))
 	}
 	
-	update(location, id) {
-		console.log(location)
 
-	}
-
-	moveStudent(location, id) {
-		console.log(location)
+	moveStudent(data, id) {
 		console.log(id)
-		fetch('/api/students/' + id, {
+		fetch('/api/student/' + id, {
 			method: 'PUT',
-			body: {
-				location: location,
-				id: id
-			}
-		}).then(this.componentDidMount())
+			body: {'body': JSON.stringify(data)},		
+
+		})
+		.then(fetch('/api/students')
+		.then(res => res.json())
+        .then(students => this.setState({students})))
 	}
 	
 	getLocations = () => this.state.locations.length

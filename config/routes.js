@@ -14,9 +14,9 @@ router.get('/api/teachers', appCNTL.getTeachers);
 //get all students
 router.get('/api/students', appCNTL.getStudents);
 //show a student
-router.get('/api/students/:id', appCNTL.showStudent);
+router.get('/api/student/:id', appCNTL.showStudent);
 //update a student
-router.patch('/api/students/:id', appCNTL.updateStudent);
+router.put('/api/student/:id', appCNTL.updateStudent);
 //show all possible locations
 router.get('/api/locations', appCNTL.showLocations);
 //add some locations

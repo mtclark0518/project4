@@ -22,9 +22,9 @@ class UpdateStudent extends Component {
 	}
 
 	onFormSubmit(event) {
+		console.log(event)
         event.preventDefault();
 		console.log('edit submitted');
-		console.log(this.props.updating)
 		this.props.onMoveStudent(this.state.value, this.props.student.id);
 		this.setState({
 			value: '',
@@ -36,12 +36,19 @@ class UpdateStudent extends Component {
 			<div className="UpdateStudent">
 				<form onSubmit={event => this.onFormSubmit(event)}>
                     <div>
-                        <input
+						{/* <button 
+							onClick={event => this.onFormSubmit(event)}
+							className="" type="submit" value='1'>G</button>
+						<button className="" type="submit" value='2'>S</button>
+						<button className="" type="submit" value='3'>H</button>
+						<button className="" type="submit" value='4'>R</button> */}
+
+                         <input
                             onChange={event => this.onInputChange(event)}
                             type="number"
                             value={this.state.value}
                             />
-                        <button type="submit">update</button>
+						<button type="submit">update</button> 
                     </div>
 				</form>
 			</div>

@@ -1,62 +1,68 @@
 const db = require('../models');
 
-const appCNTL = {
 
-    launch: function(req, res) {
+
+    function launch(req, res) {
         res.sendFile(__dirname + '/index.html');
-    },
+    }
 
     //TEACHERS(USERS)
-    getTeachers: function(req, res) {
+    function getTeachers(req, res) {
         db.models.Teacher.findAll().then(function(teachers) {
             console.log('here are your teachers');
             res.json(teachers);
         });
-    },
-    findOrCreateTeacher: function(req, res) {
+    }
+    //NEW TEACHERS
+    function findOrCreateTeacher(req, res) {
         db.models.Teacher.findOrCreate({ where: { auth: req.body.account_id } }).then(function(teacher) {
             console.log('heres your new or found teacher');
             res.json(teacher);
         });
-    },
+    }
+
+
     //STUDENTS
-    getStudents: function(req, res) {
+    function getStudents(req, res) {
         db.models.Student.findAll().then(function(students) {
             console.log('here are the students');
             res.json(students);
         })
-    },
-    showStudent: function(req,res){
+    }
+
+    function showStudent(req,res){
+        
+        console.log(req.params.id)
+        const id = req.params.id
         db.models.Student.findOne({
             where: {
-                pin: req.body.pin
+                id: id
             }
-        }).then(student => {
-            student.updateAttributes({
-                locationId: req.body.location
-            }).then(updatedStudent => {
-                console.log(updatedStudent)
-                res.json(student);
-            })
+        })
+        .then(student => {
             console.log('here is your student');
             res.json(student);
-        });
-    },
-    updateStudent: function(req,res){
+        })
+    }
+function updateStudent(req,res){
         console.log(req.body)
         db.models.Student.findOne({
             where: {
-                id: req.body.id
+                id: req.params.id 
             }
-        }).then( (student) => {
-            console.log('here is your student');
-            res.json(student);
-        } );
-    },
-
+        })
+            .then(student => {
+                student.updateAttributes({
+                    locationId: 1
+                })
+                .then(updatedStudent => {
+                    res.json(updatedStudent);
+                })
+            })
+    }
 
     //LOCATIONS
-    showLocations: function(req, res) {
+    function showLocations(req, res) {
         db.models.Location.findAll({
             include: [
                 {
@@ -67,19 +73,15 @@ const appCNTL = {
             console.log('here are your locations');
             res.json(locations);
         });
-    },
+    }
 
-    // studentLocations: function(req, res) {
-    //     db.models.Location.findAll({
-    //         include: [{
-    //             model: db.models.Student,
-    //             where: { locationId: Sequelize.col('location.id') }
-    //         }]
-    //     });
-    // }
+module.exports = {
+    launch: launch,
+    getTeachers: getTeachers,
+    findOrCreateTeacher: findOrCreateTeacher,
+    getStudents: getStudents,
+    showStudent: showStudent,
+    updateStudent: updateStudent,
+    showLocations: showLocations
 
-};
-
-
-
-module.exports = appCNTL;
+}
