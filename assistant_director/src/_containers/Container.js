@@ -28,12 +28,18 @@ class Container extends Component {
 		console.log(id)
 		fetch('/api/student/' + id, {
 			method: 'PUT',
-			body: {'body': JSON.stringify(data)},		
+			body: 'this is the body',		
 
 		})
 		.then(fetch('/api/students')
 		.then(res => res.json())
         .then(students => this.setState({students})))
+	}
+	createStudent(data) {
+		fetch('/api/students', {
+			method: 'POST',
+			body: JSON.stringify(data)
+		});
 	}
 	
 	getLocations = () => this.state.locations.length
@@ -48,7 +54,8 @@ class Container extends Component {
 				<div className="dashHeading">
 					<span>{this.getStudents()} Students Present</span>
 					<span>Manage Your Students</span>
-					<button>Sign-In</button>
+					<button
+						onClick={this.createStudent}>Sign-In</button>
 					<button>Sign-Out</button>
 				</div>
 

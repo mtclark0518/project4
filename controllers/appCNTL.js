@@ -53,7 +53,7 @@ function updateStudent(req,res){
         })
             .then(student => {
                 student.updateAttributes({
-                    locationId: 1
+                    locationId: 4
                 })
                 .then(updatedStudent => {
                     res.json(updatedStudent);
@@ -83,5 +83,4 @@ module.exports = {
     showStudent: showStudent,
     updateStudent: updateStudent,
     showLocations: showLocations
-
-}
+};

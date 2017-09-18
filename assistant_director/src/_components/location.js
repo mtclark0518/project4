@@ -17,7 +17,7 @@ class Location extends Component {
             active : !prevState.active
         }))
     } 
-        
+    
     render() {
         const activeState = this.state.active
         console.log(activeState)
@@ -33,7 +33,6 @@ class Location extends Component {
                 onMoveStudent={this.props.onMoveStudent}/>)
         })
         console.log(classRoster)
-
         return(
             <div className='location'>
             <div className={this.props.name}>
@@ -55,7 +54,6 @@ class Location extends Component {
                     )
                 }
                 </div>
-
              </div>
              </div> 
         ) 
