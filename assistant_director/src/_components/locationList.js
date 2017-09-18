@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Location from './location'
 import Student from './student'
+import '../_styles/main.css'
 
 
 class LocationList extends Component {        

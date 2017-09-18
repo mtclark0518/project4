@@ -6,14 +6,6 @@ const appCNTL = {
         res.sendFile(__dirname + '/index.html');
     },
 
-
-    //index
-    //show
-    //create
-    //update
-    //destroy
-
-
     //TEACHERS(USERS)
     getTeachers: function(req, res) {
         db.models.Teacher.findAll().then(function(teachers) {
@@ -27,8 +19,6 @@ const appCNTL = {
             res.json(teacher);
         });
     },
-
-    
     //STUDENTS
     getStudents: function(req, res) {
         db.models.Student.findAll().then(function(students) {
@@ -46,7 +36,16 @@ const appCNTL = {
             res.json(student);
         });
     },
-    updateStudent: function(req,res){},
+    updateStudent: function(req,res){
+        db.models.Student.findOne({
+            where: {
+                // pin: req.body.student.pin
+            }
+        }).then( (student) => {
+            console.log('here is your student');
+            res.json(student);
+        } );
+    },
 
 
     //LOCATIONS

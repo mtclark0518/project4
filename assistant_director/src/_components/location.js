@@ -1,7 +1,8 @@
 
 import React, {Component} from 'react'
-import '../_styles/main.css'
 import Student from './student'
+import '../_styles/main.css'
+
 class Location extends Component {
     
     constructor(props){
@@ -33,8 +34,8 @@ class Location extends Component {
         console.log(classRoster)
 
         return(
+            <div className='location'>
             <div className={this.props.name}>
-                
                 <div 
                     className='heading'
                     onClick={this.activate}>
@@ -54,6 +55,7 @@ class Location extends Component {
                 }
                 </div>
 
+             </div>
              </div> 
         ) 
     }

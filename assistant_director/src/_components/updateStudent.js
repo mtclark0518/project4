@@ -20,7 +20,7 @@ class UpdateStudent extends Component {
         console.log(this.props.student.firstName)
         console.log(this.state.value);
 		console.log('edit submitted');
-		this.props.onMoveStudent(this.state.value, this.props.student.pin);
+		this.props.onMoveStudent(this.props.student, this.state.value, this.props.student.pin);
 		this.setState({
 			value: '',
 		});
