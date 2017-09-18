@@ -13,10 +13,14 @@ class HomePage extends Component {
 			<div className = "homePage" > 
 			{
 				!isAuthenticated() && ( 
+					<div className="landing">
+					<h1>My AD</h1>
+					<h6>Classroom Management & Ratio Maintenance</h6>
 					<h4>
-					You are not logged in !Please { ' ' } 
-					<a style = {{ cursor: 'pointer' } } onClick = { this.login.bind(this) }> Log In </a> { ' ' } to continue. 
+					You are not logged in! Please { ' ' } <a style = {{ cursor: 'pointer' } } onClick = { this.login.bind(this) }> Log In </a> { ' ' } to continue. 
 					</h4>
+
+					</div>
 				)
 			}
 			{
@@ -24,7 +28,7 @@ class HomePage extends Component {
 					<div>
 						<div>
 							<Link to="profile">
-								<span className='link'>link</span>
+								<button className='link'>admin</button>
 							</Link>
 						</div>
 						<div><Container /></div>

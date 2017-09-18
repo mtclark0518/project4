@@ -30,10 +30,7 @@ class LocationList extends Component {
         return(
             <div>
                 <div className='locations'>
-                    {locationArray}
-                <div>
-                </div>
-                    
+                    {locationArray}            
                 </div>
             </div>
         )

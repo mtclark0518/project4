@@ -49,6 +49,7 @@ class Container extends Component {
 					<span>{this.getStudents()} Students Present</span>
 					<span>Manage Your Students</span>
 					<button>Sign-In</button>
+					<button>Sign-Out</button>
 				</div>
 
 			    <LocationList

@@ -40,7 +40,7 @@ class Location extends Component {
                 <div 
                     className='heading'
                     onClick={this.activate}>
-                        <h3>{ this.props.name} - {this.props.id}</h3>
+                        <h3>{ this.props.name}</h3>
                 </div>
 
                 <div className={this.state.active}>
@@ -51,7 +51,7 @@ class Location extends Component {
                 }
                 {
                     this.state.active === false && (
-                        <div>{classRoster.length} : {this.props.studentCapacity}</div>
+                        <div>Cur: {classRoster.length} |||  Cap: {this.props.studentCapacity}</div>
                     )
                 }
                 </div>
