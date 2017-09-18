@@ -1,7 +1,8 @@
 
 import React, {Component} from 'react'
-import '../_styles/main.css'
 import Student from './student'
+import '../_styles/main.css'
+
 class Location extends Component {
     
     constructor(props){
@@ -16,28 +17,29 @@ class Location extends Component {
             active : !prevState.active
         }))
     } 
-        
+    
     render() {
         const activeState = this.state.active
         console.log(activeState)
-        let classRoster = this.props.students.map( (student) => {
+        let classRoster = this.props.students.map( (student, index) => {
             return(<Student
-                key={student.id}
-                location={this.props.name}
+                key={index}
+                location={student.locationId}
+                id={student.id}
                 firstName={student.firstName} 
                 lastName={student.lastName}
                 gender={student.gender}
-                pin={student.pin}/>)
+                pin={student.pin}
+                onMoveStudent={this.props.onMoveStudent}/>)
         })
         console.log(classRoster)
-
         return(
+            <div className='location'>
             <div className={this.props.name}>
-                
                 <div 
                     className='heading'
                     onClick={this.activate}>
-                        <h3>{ this.props.name} - {this.props.id}</h3>
+                        <h3>{ this.props.name}</h3>
                 </div>
 
                 <div className={this.state.active}>
@@ -48,11 +50,11 @@ class Location extends Component {
                 }
                 {
                     this.state.active === false && (
-                        <div>{classRoster.length} : {this.props.studentCapacity}</div>
+                        <div>Cur: {classRoster.length} |||  Cap: {this.props.studentCapacity}</div>
                     )
                 }
                 </div>
-
+             </div>
              </div> 
         ) 
     }

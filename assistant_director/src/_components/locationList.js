@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Location from './location'
 import Student from './student'
+import '../_styles/main.css'
 
 
 class LocationList extends Component {        
@@ -10,7 +11,8 @@ class LocationList extends Component {
                 key={student.id}
                 location={student.locationId}                 
                 student={student}                
-                id={student.id} />)
+                id={student.id}
+                onMoveStudent={this.props.onMoveStudent} />)
         })
         console.log(studentArray)
         let locationArray = this.props.locations.map( (location) => {
@@ -18,6 +20,7 @@ class LocationList extends Component {
                 <Location 
                     key={location.id}
                     id={location.id}
+                    onMoveStudent={this.props.onMoveStudent}
                     students={location.students}
                     name={location.name}
                     studentCapacity={location.studentCapacity}
@@ -27,10 +30,7 @@ class LocationList extends Component {
         return(
             <div>
                 <div className='locations'>
-                    {locationArray}
-                <div>
-                </div>
-                    
+                    {locationArray}            
                 </div>
             </div>
         )

@@ -2,20 +2,53 @@
 
 import React,{Component} from 'react'
 import '../_styles/main.css'
+import UpdateStudent from './updateStudent'
 
 class Student extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            updating: false
+        }
+        this.update = this.update.bind(this)
+    }
 
+    update(){
+        this.setState(prevState => ({
+            updating : !prevState.updating
+        }))
+        console.log(this.state.updating)
 
-    moveStudent(){
-        console.log('move button pushed')
     }
     render(){
+        let updateStudent = this.state.updating          
         return(
-        <div>
-            <span>{this.props.firstName} {this.props.lastName} - {this.props.location}
+        <div className="students">
+            {
+                updateStudent === true && (
+                    <div className="updateStudent">
+                        <UpdateStudent
+                            updating={this.state.updating}
+                            student={this.props}
+                            onMoveStudent={this.props.onMoveStudent} />
+                        <button
+                            onClick={this.update}>cancel
+                        </button>
+                    </div>
+                )
+            }
+            {
+                updateStudent === false && (
+            <div className='student'>
+                <span>{this.props.firstName} </span> 
+                <span> {this.props.lastName}</span>
                 <button
-                    onClick={this.moveStudent}>MOVE</button>
-            </span>
+                    onClick={this.update}>MOVE
+                </button>
+            </div>
+                )
+            }
+
         </div>
         )}
 
