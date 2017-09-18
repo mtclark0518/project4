@@ -37,9 +37,10 @@ const appCNTL = {
         });
     },
     updateStudent: function(req,res){
+        console.log(req)
         db.models.Student.findOne({
             where: {
-                // pin: req.body.student.pin
+                id: req.body.id
             }
         }).then( (student) => {
             console.log('here is your student');

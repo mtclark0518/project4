@@ -25,6 +25,7 @@ class Location extends Component {
             return(<Student
                 key={index}
                 location={student.locationId}
+                id={student.id}
                 firstName={student.firstName} 
                 lastName={student.lastName}
                 gender={student.gender}
