@@ -23,7 +23,7 @@ class Student extends Component {
     render(){
         let updateStudent = this.state.updating          
         return(
-        <div>
+        <div className="students">
             {
                 updateStudent === true && (
                     <div className="updateStudent">
@@ -39,13 +39,13 @@ class Student extends Component {
             }
             {
                 updateStudent === false && (
-            <span>
-                    {this.props.firstName} {this.props.lastName}
-                
+            <div className='student'>
+                <span>{this.props.firstName} </span> 
+                <span> {this.props.lastName}</span>
                 <button
                     onClick={this.update}>MOVE
                 </button>
-            </span>
+            </div>
                 )
             }
 

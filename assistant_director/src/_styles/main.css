@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 .App-header {
@@ -21,13 +22,24 @@ body {
 
 .container {
     margin: auto;
-    background: blue;
+    background: #212221;
+}
+
+.dashHeading {
+    display: inline-block;
+    color: white;
+}
+
+.dashHeading span {
+    padding: 10px 25px;
 }
 
 .locations {
-    background: green;
+    background: black;
     padding: 5px 10px;
+    margin-top: 25px;
     text-align: center;
+    box-shadow: 1px 1px 1em 1px black;
 }
 
 .location {
@@ -35,6 +47,7 @@ body {
     margin: 1%;
     display: inline-block;
     background: white;
+    border-radius: 2px;
 }
 
 .location .heading {
@@ -65,11 +78,18 @@ body {
     color: #cd7f32
 }
 
+.student {
+    border: 1px solid black;
+    padding: 3px;
+}
+
 button {
-    background: white;
-    color: black;
+    background: rgba(150, 150, 150, 1);
+    color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 3px;
+    padding: 3px 15px;
+    margin: 0 5px;
     box-shadow: 0px 0px 1px 0 black;
 }
 

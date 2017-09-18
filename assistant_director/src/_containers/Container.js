@@ -43,8 +43,14 @@ class Container extends Component {
 	render() {
 		return ( 
 			<div className = "container" >
-				<div>{this.getLocations()}</div> 
-				<div>{this.getStudents()} / </div>
+				
+				
+				<div className="dashHeading">
+					<span>{this.getStudents()} Students Present</span>
+					<span>Manage Your Students</span>
+					<button>Sign-In</button>
+				</div>
+
 			    <LocationList
                     locations={this.state.locations}
 					students={this.state.students}
