@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import Location from '../_components/location'
 import '../_styles/main.css'
+import TeacherDash from '../_components/teacherDash'
 class Profile extends Component {
+
 
     componentWillMount(){
         this.setState({profile: {}})
@@ -15,16 +17,36 @@ class Profile extends Component {
         }
     }
     render() {
+        const accessToken = this.props.auth.getAccessToken()
+        const user = JSON.stringify(this.state)
+        console.log(accessToken)
+        console.log(user)
         const { profile } = this.state;
         return (
             <div>
-                <h1>{profile.given_name}</h1>
-                <h1>{profile.family_name}</h1>
+            {
+                user && (
                 <div>
-                    <Location/>
-                </div>
+                    <TeacherDash
+                        account={this.state.profile}
+                        accessToken={accessToken} />
+                    this is the profile id i can store - 
+                    {accessToken}    
+
+
                 <h4>this is what comes back from auth0</h4>                
                 <pre>{JSON.stringify(profile, null, 2)}</pre>
+                </div>
+
+                )
+            },
+            {
+                !user && (
+                    <h1>uh oh you shouldn't be here</h1>
+                )
+            }
+            
+
             </div>
         )
     }

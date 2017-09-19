@@ -1,3 +1,7 @@
+var db = require('./index');
+
+const Location = db.Location
+
 module.exports = function(sequelize, Sequelize) {
     var student = sequelize.define('student', {
         id: {
@@ -8,7 +12,18 @@ module.exports = function(sequelize, Sequelize) {
         },
         locationId: {
             type: Sequelize.INTEGER,
-            allowNull: false
+            allowNull: false,
+            get(){
+                // const house = this.getDataValue('locationId');
+                return this.getDataValue('locationId');
+            },
+        },
+        house: {
+            type: Sequelize.INTEGER,
+            set(dataValue) {
+                console.log(dataValue)
+                this.setDataValue('house', dataValue);
+            }
         },
         firstName: {
             type: Sequelize.STRING

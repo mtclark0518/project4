@@ -2,6 +2,7 @@
 import React, {Component} from 'react'
 import Student from './student'
 import '../_styles/main.css'
+import Doughnut from './chart'
 
 class Location extends Component {
     
@@ -50,7 +51,12 @@ class Location extends Component {
                 }
                 {
                     this.state.active === false && (
+                        <div className="chart">
+                        <Doughnut
+                            location={this.props} 
+                            data={classRoster}/>
                         <div>Cur: {classRoster.length} |||  Cap: {this.props.studentCapacity}</div>
+                        </div>
                     )
                 }
                 </div>

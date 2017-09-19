@@ -13,9 +13,11 @@ const db = require('../models');
             res.json(teachers);
         });
     }
-    //NEW TEACHERS
-    function findOrCreateTeacher(req, res) {
-        db.models.Teacher.findOrCreate({ where: { auth: req.body.account_id } }).then(function(teacher) {
+
+    //SHOW TEACHERS
+    function showTeacher(req, res) {
+        console.log(req.body)
+        db.models.Teacher.findOrCreate({ where: { auth0: req.body.data } }).then(function(teacher) {
             console.log('heres your new or found teacher');
             res.json(teacher);
         });
@@ -45,17 +47,21 @@ const db = require('../models');
         })
     }
 function updateStudent(req,res){
-        console.log(req.body)
+    console.log('updateStudentReqeust has been initiated')    
+    console.log(req.body)
         db.models.Student.findOne({
             where: {
                 id: req.params.id 
             }
         })
             .then(student => {
+                console.log('first checkin')
                 student.updateAttributes({
-                    locationId: 4
+                    locationId: req.body.data
                 })
                 .then(updatedStudent => {
+                    console.log('response prepared')
+                    console.log(updatedStudent)
                     res.json(updatedStudent);
                 })
             })
@@ -78,7 +84,7 @@ function updateStudent(req,res){
 module.exports = {
     launch: launch,
     getTeachers: getTeachers,
-    findOrCreateTeacher: findOrCreateTeacher,
+    showTeacher: showTeacher,
     getStudents: getStudents,
     showStudent: showStudent,
     updateStudent: updateStudent,
