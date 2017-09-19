@@ -28,7 +28,7 @@ class Student extends Component {
                 updateStudent === true && (
                     <div className="updateStudent">
                         <UpdateStudent
-                            updating={this.state.updating}
+                            onUpdate={this.update.bind(this)}
                             student={this.props}
                             onMoveStudent={this.props.onMoveStudent} />
                         <button

@@ -9,11 +9,11 @@ class UpdateStudent extends Component {
 		}
 	}
 	
-	componentWillReceiveProps(newProps) {
-  		if (this.state.name !== newProps.name) {
-    	this.setState({name: newProps.name});
-  		}
-	}
+	// componentWillReceiveProps(newProps) {
+  	// 	if (this.state.name !== newProps.name) {
+    // 	this.setState({name: newProps.name});
+  	// 	}
+	// }
 	onInputChange(event){
 		console.log('input has changed');
 		this.setState({
@@ -22,14 +22,13 @@ class UpdateStudent extends Component {
 	}
 
 	onFormSubmit(event) {
-		console.log(event)
         event.preventDefault();
 		console.log('edit submitted');
-		this.props.onMoveStudent(this.state.value, this.props.student.id);
+		this.props.onMoveStudent(this.props.student.id, this.state.value)
+		this.props.onUpdate();
 		this.setState({
 			value: '',
 		});
-
 	}
 	render() {
 		return(

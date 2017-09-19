@@ -45,17 +45,21 @@ const db = require('../models');
         })
     }
 function updateStudent(req,res){
-        console.log(req.body)
+    console.log('updateStudentReqeust has been initiated')    
+    console.log(req.body)
         db.models.Student.findOne({
             where: {
                 id: req.params.id 
             }
         })
             .then(student => {
+                console.log('first checkin')
                 student.updateAttributes({
-                    locationId: 4
+                    locationId: req.body.data
                 })
                 .then(updatedStudent => {
+                    console.log('response prepared')
+                    console.log(updatedStudent)
                     res.json(updatedStudent);
                 })
             })
