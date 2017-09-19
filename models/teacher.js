@@ -4,18 +4,11 @@ module.exports = function(sequelize, Sequelize) {
             type: Sequelize.STRING,
             notNull: true
         },
-        firstName: {
-            type: Sequelize.STRING,
-            notNull: false
-        },
-        lastName: {
-            type: Sequelize.STRING,
-            notNull: false
-        },
-        // isAdmin: {
-        //     type: Sequelize.BOOLEAN,
-        //     notNull: true
-        // }
+        isAdmin: {
+            type: Sequelize.BOOLEAN,
+            notNull: true,
+            value: true
+        }
     });
     return teacher;
 };

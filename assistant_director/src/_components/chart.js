@@ -1,5 +1,7 @@
 import React from 'react';
 import {Doughnut} from 'react-chartjs-2';
+import Student from './student'
+
 
 function getRandomInt (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -24,7 +26,7 @@ const getState = () => ({
 });
 
 export default React.createClass({
-  displayName: 'DynamicDoughnutExample',
+  displayName: 'Location Capacity Doughnut',
 
 	getInitialState() {
 		return getState();

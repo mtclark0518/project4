@@ -13,9 +13,11 @@ const db = require('../models');
             res.json(teachers);
         });
     }
-    //NEW TEACHERS
-    function findOrCreateTeacher(req, res) {
-        db.models.Teacher.findOrCreate({ where: { auth: req.body.account_id } }).then(function(teacher) {
+
+    //SHOW TEACHERS
+    function showTeacher(req, res) {
+        console.log(req.body)
+        db.models.Teacher.findOrCreate({ where: { auth0: req.body.data } }).then(function(teacher) {
             console.log('heres your new or found teacher');
             res.json(teacher);
         });
@@ -82,7 +84,7 @@ function updateStudent(req,res){
 module.exports = {
     launch: launch,
     getTeachers: getTeachers,
-    findOrCreateTeacher: findOrCreateTeacher,
+    showTeacher: showTeacher,
     getStudents: getStudents,
     showStudent: showStudent,
     updateStudent: updateStudent,
