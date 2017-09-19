@@ -24,7 +24,8 @@ class Container extends Component {
 				.then(axios.get('api/students')
 					.then(response => {
 						this.setState({ students: response.data })
-		}))
+					})
+				)
 
 	}
 	moveStudent(id, item){
@@ -33,10 +34,10 @@ class Container extends Component {
 			method: 'PUT',
 			url: 'api/student/'+id, 
 			data:{data: item}})
-			.then(response => {
-				console.log(response.data)
-				this.getData();
-			})
+				.then(response => {
+					console.log(response.data)
+					this.getData();
+				})
 	}
 
 	
