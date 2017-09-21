@@ -2,20 +2,18 @@ import React, {Component} from 'react';
 
 
 class UpdateStudent extends Component {
-	constructor() {
-		super();
+	
+	
+	constructor(props) {
+		super(props);
 		this.state = {
-			value: " ",
+			value: " "
 		}
 	}
 	
-	// componentWillReceiveProps(newProps) {
-  	// 	if (this.state.name !== newProps.name) {
-    // 	this.setState({name: newProps.name});
-  	// 	}
-	// }
 	onInputChange(event){
 		console.log('input has changed');
+		console.log(this)
 		this.setState({
 			value: event.target.value,
 		});
@@ -34,21 +32,34 @@ class UpdateStudent extends Component {
 		return(
 			<div className="UpdateStudent">
 				<form onSubmit={event => this.onFormSubmit(event)}>
-                    <div>
-						{/* <button 
-							onClick={event => this.onFormSubmit(event)}
-							className="" type="submit" value='1'>G</button>
-						<button className="" type="submit" value='2'>S</button>
-						<button className="" type="submit" value='3'>H</button>
-						<button className="" type="submit" value='4'>R</button> */}
-
-                         <input
-                            onChange={event => this.onInputChange(event)}
-                            type="number"
-                            value={this.state.value}
-                            />
+                    
+					<div className="locationUpdateContainer">
+						<div className="radioInput">
+							<label>
+								<input value="1" type="radio" checked={this.state.value == "1"} onChange={event => this.onInputChange(event)}/>
+							Gryffindor
+							</label>
+						</div>
+						<div className="radioInput">
+							<label>
+								<input value="2" type="radio" checked={this.state.value == "2"} onChange={event=> this.onInputChange(event)}/>
+							Slytherin
+							</label>
+						</div>
+						<div className="radioInput">
+							<label>
+								<input value="3" type="radio" checked={this.state.value == "3"} onChange={event=> this.onInputChange(event)}/>
+							Hufflepuff
+							</label>
+						</div>
+						<div className="radioInput">
+							<label>
+								<input value="4" type="radio" checked={this.state.value == "4"} onChange={event=> this.onInputChange(event)}/>
+							Ravenclaw
+							</label>
+						</div>
 						<button type="submit">update</button> 
-                    </div>
+					</div>
 				</form>
 			</div>
 		)

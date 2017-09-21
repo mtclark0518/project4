@@ -18,7 +18,6 @@ Location.hasMany(Student);
 // Location.hasMany(Teacher);
 Teacher.belongsTo(Location);
 Location.hasMany(Teacher);
-// Teacher.belongsToMany(Location, { through: 'teacher_location' });
 
 
 // wrap up our models into a variable

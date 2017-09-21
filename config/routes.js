@@ -9,7 +9,7 @@ const appCNTL = require('../controllers/appCNTL');
 //get teachers
 router.get('/api/teachers', appCNTL.getTeachers);
 //show or create a teacher
-router.post('/api/teacher/:auth0', appCNTL.showTeacher);
+router.post('/api/teacher/:auth', appCNTL.showTeacher);
 
 //get all students
 router.get('/api/students', appCNTL.getStudents);
