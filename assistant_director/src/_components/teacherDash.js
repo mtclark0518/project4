@@ -12,12 +12,13 @@ class TeacherDash extends Component {
     }
     showUser(){
         console.log('inside the show user function')
-        const userToken = this.props.accessToken
-        const userToShow = {auth0:userToken}
+        const userID = this.props.account.sub
+        console.log(userID)
+        const userToShow = {auth0:userID}
 
         axios({
             method: 'POST',
-            url: 'api/teacher/' + userToken,
+            url: 'api/teacher/' + userID,
             data: userToShow})
             .then(response => {
                 console.log(response)

@@ -36,25 +36,25 @@ class UpdateStudent extends Component {
 					<div className="locationUpdateContainer">
 						<div className="radioInput">
 							<label>
-								<input value="1" type="radio" checked={this.state.value == "1"} onChange={event => this.onInputChange(event)}/>
+								<input value="1" type="radio" checked={this.state.value === "1"} onChange={event => this.onInputChange(event)}/>
 							Gryffindor
 							</label>
 						</div>
 						<div className="radioInput">
 							<label>
-								<input value="2" type="radio" checked={this.state.value == "2"} onChange={event=> this.onInputChange(event)}/>
+								<input value="2" type="radio" checked={this.state.value === "2"} onChange={event=> this.onInputChange(event)}/>
 							Slytherin
 							</label>
 						</div>
 						<div className="radioInput">
 							<label>
-								<input value="3" type="radio" checked={this.state.value == "3"} onChange={event=> this.onInputChange(event)}/>
+								<input value="3" type="radio" checked={this.state.value === "3"} onChange={event=> this.onInputChange(event)}/>
 							Hufflepuff
 							</label>
 						</div>
 						<div className="radioInput">
 							<label>
-								<input value="4" type="radio" checked={this.state.value == "4"} onChange={event=> this.onInputChange(event)}/>
+								<input value="4" type="radio" checked={this.state.value === "4"} onChange={event=> this.onInputChange(event)}/>
 							Ravenclaw
 							</label>
 						</div>

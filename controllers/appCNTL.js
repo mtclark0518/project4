@@ -16,8 +16,9 @@ const db = require('../models');
 
     //SHOW TEACHERS
     function showTeacher(req, res) {
+        console.log('showing ur teach boss')
         console.log(req.body)
-        db.models.Teacher.findOrCreate({ where: { auth0: req.params.auth } }).then(function(teacher) {
+        db.models.Teacher.findOrCreate({ where: { auth0: req.body.auth0 } }).then(function(teacher) {
             console.log('heres your new or found teacher');
             res.json(teacher);
         });
